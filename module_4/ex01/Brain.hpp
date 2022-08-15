@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 16:32:36 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 11:58:29 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 16:44:26 by amarchal          #+#    #+#             */
+/*   Updated: 2022/08/15 16:54:39 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-# include "FragTrap.hpp"
+# include "Animal.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class Brain
 {
 	private:
-		std::string name;
-		
+	protected:
+		std::string ideas[100];
 	public:
-		DiamondTrap();
-		DiamondTrap(const std::string name);
-		DiamondTrap(const DiamondTrap &source);
-		~DiamondTrap();
-		
-		DiamondTrap	&operator=(const DiamondTrap &source);
-		using	ScavTrap::attack;
-		void	whoAmI();
+		Brain(/* args */);
+		Brain(const Brain &source);
+		~Brain();
+		Brain &operator=(const Brain &source);
 };
 
 
