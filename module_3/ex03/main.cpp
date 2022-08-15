@@ -6,44 +6,37 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 15:38:25 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/11 16:20:11 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/15 11:38:30 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main()
 {
-	ClapTrap clap_1("Clap_Gilles");
+	ScavTrap	scav_1("Grüdu");
+	FragTrap	frag_1("Roparzh");
+	DiamondTrap diamond_1("Elias");
 
-	ScavTrap scav_0;
-	ScavTrap scav_1("Scav_Brouette");
-	ScavTrap scav_2("Scav_Pelle");
-
-	FragTrap frag_1("Frag_Courgette");
-
-	clap_1.attack(scav_1.getName());
-	scav_1.takeDamage(clap_1.getAttackDmg());
-	scav_1.attack(clap_1.getName());
-	clap_1.takeDamage(scav_1.getAttackDmg());
+	std::cout << "I am a ScavTrap named " << scav_1.getName() << ", my characteristics are :" << std::endl;
+	std::cout << "LifePts : " << scav_1.getLife() << ", EnergyPts : " << scav_1.getEnergy() << ", AttackDmg : " << scav_1.getAttackDmg() << std::endl << std::endl;
+	std::cout << "I am a FragTrap named " << frag_1.getName() << ", my characteristics are :" << std::endl;
+	std::cout << "LifePts : " << frag_1.getLife() << ", EnergyPts : " << frag_1.getEnergy() << ", AttackDmg : " << frag_1.getAttackDmg() << std::endl << std::endl;
+	std::cout << "I am a DiamondTrap, my characteristics are :" << std::endl;
+	std::cout << "LifePts : " << diamond_1.getLife() << ", EnergyPts : " << diamond_1.getEnergy() << ", AttackDmg : " << diamond_1.getAttackDmg() << std::endl << std::endl;
 	
-	std::cout << scav_1.getEnergy() << std::endl;
-	std::cout << scav_0.getEnergy() << std::endl;
-	scav_0 = scav_1;
-	std::cout << scav_0.getEnergy() << std::endl;
+	std::cout  << "Who Am I ??" << std::endl;
+	diamond_1.whoAmI();
+	std::cout << std::endl;
+
+	std::cout << "I can use the specials functions of my parents. Look at that :" << std::endl;
+	diamond_1.guardGate();
+	diamond_1.highFivesGuys();
+	std::cout << std::endl;
 	
-	scav_1.guardGate();
-	scav_0.attack(scav_1.getName());
-	scav_1.takeDamage(scav_0.getAttackDmg());
-
-	frag_1.attack(scav_1.getName());
-	scav_1.takeDamage(frag_1.getAttackDmg());
-	frag_1.attack(scav_1.getName());
-	scav_1.takeDamage(frag_1.getAttackDmg());
-	frag_1.attack(scav_1.getName());
-	scav_1.takeDamage(frag_1.getAttackDmg());
-
-	frag_1.highFivesGuys();
+	std::cout << "And I can attack like a ScavTrap :" << std::endl;
+	diamond_1.attack(frag_1.getName());
+	std::cout << std::endl;
 	
 	return (0);
 }

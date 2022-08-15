@@ -6,25 +6,27 @@
 #    By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:06:58 by amarchal          #+#    #+#              #
-#    Updated: 2022/08/11 16:11:33 by amarchal         ###   ########.fr        #
+#    Updated: 2022/08/14 13:41:47 by amarchal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := FragTrap
+NAME := DiamondTrap
 
 SRCS := 	main.cpp		\
 			ClapTrap.cpp	\
 			ScavTrap.cpp	\
 			FragTrap.cpp	\
+			DiamondTrap.cpp	\
 		
 INCLUDES :=	ClapTrap.hpp	\
 			ScavTrap.hpp	\
 			FragTrap.hpp	\
+			DiamondTrap.hpp	\
 			
 OBJS := $(SRCS:.cpp=.o)
 
 CC := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+CFLAGS := -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
 all : $(NAME)
 

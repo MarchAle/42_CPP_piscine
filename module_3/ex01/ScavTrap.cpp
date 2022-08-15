@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 12:02:36 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/11 15:27:41 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/15 11:45:02 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,25 @@
 /*                                                              */
 /* ************************************************************ */
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : class_lifePts(100), class_energyPts(50), class_attackDmg(20)
 {
 	this->name = "Unknown";
-	this->setLife(100);
-	this->setEnergy(50);
-	this->setAttackDmg(20);
+	this->lifePts = this->class_lifePts;
+	this->attackDmg = this->class_attackDmg;
+	this->energyPts = this->class_energyPts;
 	std::cout << GREEN << "Scav Constructor : -- Welcome " << this->name << " --" << END << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : class_lifePts(100), class_energyPts(50), class_attackDmg(20)
 {
 	this->name = name;
-	this->setLife(100);
-	this->setEnergy(50);
-	this->setAttackDmg(20);
+	this->lifePts = this->class_lifePts;
+	this->attackDmg = this->class_attackDmg;
+	this->energyPts = this->class_energyPts;
 	std::cout << GREEN << "Scav Constructor : -- Welcome " << this->name << " --" << END << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &source)
+ScavTrap::ScavTrap(const ScavTrap &source) : class_lifePts(100), class_energyPts(50), class_attackDmg(20)
 {
 	*this = source;
 	std::cout << GREEN << "Scav Copy constructor : -- Welcome " << this->name << ", you looks exactly like " << source.name << " --" << END << std::endl;
@@ -81,12 +81,12 @@ void	ScavTrap::attack(const std::string &target)
 	{
 		std::cout 	<< YELLOW << "ScavTrap " << this->name << " attacks " << target
 					<< " causing " << this->attackDmg
-					<< " points of damage ! （　ﾟДﾟ）" << END << std::endl;
+					<< " points of damage ! (ง'̀-'́)ง" << END << std::endl;
 		this->energyPts--;
 	}
 }
 
 void	ScavTrap::guardGate()
 {
-	std::cout << PURPLE << "ScavTrap " << this->name << " is now in Gate keeper mode !" << END << std::endl;
+	std::cout << PURPLE << "ScavTrap " << this->name << " is now in Gate keeper mode ! ᕙ(⇀‸↼‶)ᕗ" << END << std::endl;
 }
