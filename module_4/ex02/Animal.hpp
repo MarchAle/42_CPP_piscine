@@ -6,12 +6,12 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:22:21 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/16 10:36:39 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/16 13:28:58 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # define RED "\x1B[31m"
 # define GREEN "\x1B[32m"
@@ -24,18 +24,18 @@
 # include <iostream>
 # include <array>
 
-class Animal
+class AAnimal
 {
 	private:
-		/* data */
+		
 	protected:
 		std::string	type;
 	public:
-		Animal(/* args */);
-		Animal(const Animal &source);
-		virtual ~Animal();
-		Animal	&operator=(const Animal &source);
-		virtual void makeSound() const;
+		AAnimal();
+		AAnimal(const AAnimal &source);
+		virtual ~AAnimal();
+		AAnimal	&operator=(const AAnimal &source);
+		virtual void makeSound() const = 0;
 		std::string	getType() const;
 };
 

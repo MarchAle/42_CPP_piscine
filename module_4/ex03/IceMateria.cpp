@@ -1,44 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   IceMateria.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 14:01:35 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/16 11:30:59 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/16 14:31:11 by amarchal          #+#    #+#             */
+/*   Updated: 2022/08/17 14:22:42 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "IceMateria.hpp"
 
-Cat::Cat(/* args */)
+
+IceMateria::IceMateria()
 {
-	std::cout << ORANGE << "Cat's default constructor called" << END << std::endl;
-	this->catBrain = new Brain();
-	this->type = "Cat";
+	std::cout << BLUE << "IceMateria default constructor" << std::endl << END;
 }
 
-Cat::Cat(const Cat &source)
+IceMateria::IceMateria(const std::string type)
 {
-	std::cout << ORANGE << "Cat's copy constructor called" << END << std::endl;
-	this->type = source.getType();
-	this->catBrain = new Brain;
+	std::cout << BLUE << "IceMateria constructor" << std::endl << END;
+	this->type = type;
 }
 
-Cat	&Cat::operator=(const Cat &source)
+IceMateria::IceMateria(const IceMateria &source)
 {
-	std::cout << ORANGE << "Cat's assignator called" << END << std::endl;
-	this->type = source.getType();
-	this->catBrain = new Brain;
+	std::cout << BLUE << "IceMateria copy constructor" << std::endl << END;
+	this->type = source.type;
+}
+
+IceMateria &IceMateria::operator=(const IceMateria &source)
+{
+	std::cout << BLUE << "IceMateria assignator" << std::endl << END;
+	this->type = source.type;
 	return (*this);
 }
 
-Cat::~Cat()
+IceMateria::~IceMateria()
 {
-	std::cout << ORANGE << "Cat's destructor called" << END << std::endl;
-	delete this->catBrain;
+	std::cout << BLUE << "IceMateria destructor" << std::endl << END;
 }
+
 
 /* ************************************************************ */
 /*                                                              */
@@ -48,7 +51,7 @@ Cat::~Cat()
 /*                                                              */
 /* ************************************************************ */
 
-void	Cat::makeSound() const
+IceMateria *IceMateria::clone() const
 {
-	std::cout << ORANGE << "Mi-ahou mi-ahou ..." << END << std::endl;
+	return (new IceMateria(*this));
 }

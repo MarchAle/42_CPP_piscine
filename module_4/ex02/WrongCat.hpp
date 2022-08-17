@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 14:00:10 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/16 11:13:54 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 16:03:05 by amarchal          #+#    #+#             */
+/*   Updated: 2022/08/15 16:16:37 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "WrongAnimal.hpp"
 
-class Cat : public Animal
+class WrongCat : public WrongAnimal
 {
 	private:
-		Brain* catBrain;
-	protected:
-	
+		/* data */
 	public:
-		Cat();
-		Cat(const Cat &source);
-		Cat &operator=(const Cat &source);
-		virtual ~Cat();
-		
-		void makeSound() const;
+		WrongCat(/* args */);
+		WrongCat(const WrongCat &source);
+		~WrongCat();
+		WrongCat	&operator=(const WrongCat &source);
+		void	makeSound() const;
 };
 
 #endif

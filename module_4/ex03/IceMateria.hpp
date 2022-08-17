@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   IceMateria.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 14:00:10 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/16 11:13:54 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/16 14:31:25 by amarchal          #+#    #+#             */
+/*   Updated: 2022/08/17 11:00:02 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef ICEMATERIA_HPP
+# define ICEMATERIA_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "AMateria.hpp"
 
-class Cat : public Animal
+class IceMateria : public AMateria
 {
 	private:
-		Brain* catBrain;
-	protected:
-	
+		/* data */
 	public:
-		Cat();
-		Cat(const Cat &source);
-		Cat &operator=(const Cat &source);
-		virtual ~Cat();
+		IceMateria();
+		IceMateria(const std::string type);
+		IceMateria(const IceMateria &source);
+		IceMateria &operator=(const IceMateria &source);
+		~IceMateria();
 		
-		void makeSound() const;
+		virtual IceMateria *clone() const;
+
 };
+
 
 #endif

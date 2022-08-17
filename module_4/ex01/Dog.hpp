@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:43:49 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 16:56:33 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/16 11:13:38 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ class Dog : public Animal
 		Brain* dogBrain;
 	protected:
 	public:
-		Dog(/* args */);
+		Dog();
 		Dog(const Dog &source);
-		~Dog();
 		Dog &operator=(const Dog &source);
+		virtual ~Dog();
+		
 		void	makeSound() const;
 };
 

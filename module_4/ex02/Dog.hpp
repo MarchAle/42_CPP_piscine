@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 14:00:10 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/16 11:13:54 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 13:43:49 by amarchal          #+#    #+#             */
+/*   Updated: 2022/08/16 13:24:45 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Cat : public Animal
+class Dog : public AAnimal
 {
 	private:
-		Brain* catBrain;
+		Brain* dogBrain;
 	protected:
-	
 	public:
-		Cat();
-		Cat(const Cat &source);
-		Cat &operator=(const Cat &source);
-		virtual ~Cat();
+		Dog();
+		Dog(const Dog &source);
+		Dog &operator=(const Dog &source);
+		virtual ~Dog();
 		
-		void makeSound() const;
+		void	makeSound() const;
 };
 
 #endif

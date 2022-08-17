@@ -1,44 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   CureMateria.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 14:01:35 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/16 11:30:59 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/16 15:25:29 by amarchal          #+#    #+#             */
+/*   Updated: 2022/08/17 14:16:25 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "CureMateria.hpp"
 
-Cat::Cat(/* args */)
+CureMateria::CureMateria(/* args */)
 {
-	std::cout << ORANGE << "Cat's default constructor called" << END << std::endl;
-	this->catBrain = new Brain();
-	this->type = "Cat";
+	std::cout << "CureMateria default constructor" << std::endl;
 }
 
-Cat::Cat(const Cat &source)
+CureMateria::CureMateria(const std::string &type)
 {
-	std::cout << ORANGE << "Cat's copy constructor called" << END << std::endl;
-	this->type = source.getType();
-	this->catBrain = new Brain;
+	std::cout << "CureMateria constructor" << std::endl;
+	this->type = type;
 }
 
-Cat	&Cat::operator=(const Cat &source)
+CureMateria::CureMateria(const CureMateria &source)
 {
-	std::cout << ORANGE << "Cat's assignator called" << END << std::endl;
-	this->type = source.getType();
-	this->catBrain = new Brain;
+	std::cout << "CureMateria copy constructor" << std::endl;
+	this->type = source.type;
+}
+
+CureMateria &CureMateria::operator=(const CureMateria &source)
+{
+	std::cout << "CureMateria assignator" << std::endl;
+	this->type = source.type;
 	return (*this);
 }
 
-Cat::~Cat()
+CureMateria::~CureMateria()
 {
-	std::cout << ORANGE << "Cat's destructor called" << END << std::endl;
-	delete this->catBrain;
+	std::cout << "CureMateria destructor" << std::endl;
+
 }
+
 
 /* ************************************************************ */
 /*                                                              */
@@ -48,7 +51,7 @@ Cat::~Cat()
 /*                                                              */
 /* ************************************************************ */
 
-void	Cat::makeSound() const
+AMateria *CureMateria::clone() const
 {
-	std::cout << ORANGE << "Mi-ahou mi-ahou ..." << END << std::endl;
+	return (new CureMateria(*this));
 }
