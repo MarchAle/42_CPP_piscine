@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:21:52 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/17 15:42:14 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:59:28 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,20 @@ int	main()
 
 	// IceMateria iceMat("ice");	
 	// IceMateria *cloneIce = iceMat.clone();
+
+	MateriaSource *source = new MateriaSource;
 	
+	source->learnMateria(ice1);
+
 	// iceMat.use(roger);	
 	// cloneIce->use(roger);	
 	// cureMat.use(roger);	
 
 	// roger.equip(&iceMat);
 	// billou.equip(&iceMat);
-	roger.equip(ice1);
-	roger.equip(ice2);
-	Character gerard = roger;
-	gerard.use(0, roger);
+	roger.equip(source->createMateria("ice"));
+	roger.use(0, roger);
+	roger.use(0, roger);
 	// roger.equip(ice2);
 	// roger.equip(ice3);
 	// roger.equip(ice4);
@@ -55,8 +58,9 @@ int	main()
 	// roger.unequip(0);
 	// roger.unequip(1);
 	// roger.unequip(0);
-
-	// delete cloneIce;
+	delete ice1;
+	delete ice2;
+	delete source;
 	
 	return (0);
 }

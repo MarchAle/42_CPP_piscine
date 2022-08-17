@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:54:06 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/17 15:21:18 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:43:22 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ Character::~Character()
 	std::cout << BGREEN << "Character destructor" << std::endl << END;
 	for (int i = 0; i < 4; i++)
 	{
-		std::cout << "should delete ?" << std::endl;
 		if (this->inventory[i] != NULL)
 		{
 			std::cout << "Metaria " << this->inventory[i]->getType() << " from inventory deleted" << std::endl;
@@ -74,7 +73,6 @@ Character::~Character()
 ICharacter::~ICharacter()
 {
 }
-
 
 /* ************************************************************ */
 /*                                                              */
