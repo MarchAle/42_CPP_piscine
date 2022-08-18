@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IceMateria.hpp                                     :+:      :+:    :+:   */
+/*   Ice.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:31:25 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/17 11:00:02 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/18 10:09:03 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICEMATERIA_HPP
-# define ICEMATERIA_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
 # include "AMateria.hpp"
 
-class IceMateria : public AMateria
+class Ice : public AMateria
 {
 	private:
 		/* data */
 	public:
-		IceMateria();
-		IceMateria(const std::string type);
-		IceMateria(const IceMateria &source);
-		IceMateria &operator=(const IceMateria &source);
-		~IceMateria();
+		Ice();
+		Ice(const std::string type);
+		Ice(const Ice &source);
+		Ice &operator=(const Ice &source);
+		~Ice();
 		
-		virtual IceMateria *clone() const;
+		virtual Ice *clone() const;
 
 };
 

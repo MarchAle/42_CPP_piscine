@@ -1,45 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IceMateria.cpp                                     :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:31:11 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/17 14:22:42 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/18 11:12:00 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "IceMateria.hpp"
+#include "Ice.hpp"
 
 
-IceMateria::IceMateria()
+Ice::Ice()
 {
-	std::cout << BLUE << "IceMateria default constructor" << std::endl << END;
+	// std::cout << BLUE << "Ice default constructor" << std::endl << END;
+	this->type = "ice";
 }
 
-IceMateria::IceMateria(const std::string type)
+Ice::Ice(const std::string type)
 {
-	std::cout << BLUE << "IceMateria constructor" << std::endl << END;
+	// std::cout << BLUE << "Ice constructor" << std::endl << END;
 	this->type = type;
 }
 
-IceMateria::IceMateria(const IceMateria &source)
+Ice::Ice(const Ice &source)
 {
-	std::cout << BLUE << "IceMateria copy constructor" << std::endl << END;
+	// std::cout << BLUE << "Ice copy constructor" << std::endl << END;
 	this->type = source.type;
 }
 
-IceMateria &IceMateria::operator=(const IceMateria &source)
+Ice &Ice::operator=(const Ice &source)
 {
-	std::cout << BLUE << "IceMateria assignator" << std::endl << END;
+	// std::cout << BLUE << "Ice assignator" << std::endl << END;
 	this->type = source.type;
 	return (*this);
 }
 
-IceMateria::~IceMateria()
+Ice::~Ice()
 {
-	std::cout << BLUE << "IceMateria destructor" << std::endl << END;
+	// std::cout << BLUE << "Ice destructor" << std::endl << END;
 }
 
 
@@ -51,7 +52,7 @@ IceMateria::~IceMateria()
 /*                                                              */
 /* ************************************************************ */
 
-IceMateria *IceMateria::clone() const
+Ice *Ice::clone() const
 {
-	return (new IceMateria(*this));
+	return (new Ice(*this));
 }

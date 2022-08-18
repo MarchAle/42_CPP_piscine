@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:54:06 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/17 16:43:22 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/18 12:03:26 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Character::Character()
 {
-	std::cout << BGREEN << "Character default constructor" << std::endl << END;
+	// std::cout << BGREEN << "Character default constructor" << std::endl << END;
 	this->name = "Unknown";
 	for (int i = 0; i < 4; i++)
 	{
@@ -24,7 +24,7 @@ Character::Character()
 
 Character::Character(const std::string name)
 {
-	std::cout << BGREEN << "Character constructor" << std::endl << END;
+	// std::cout << BGREEN << "Character constructor" << std::endl << END;
 	this->name = name;
 	for (int i = 0; i < 4; i++)
 	{
@@ -34,7 +34,7 @@ Character::Character(const std::string name)
 
 Character::Character(const Character &source)
 {
-	std::cout << BGREEN << "Character copy constructor" << std::endl << END;
+	// std::cout << BGREEN << "Character copy constructor" << std::endl << END;
 	this->name = source.name;
 	for (int i = 0; i < 4; i++)
 	{
@@ -47,7 +47,7 @@ Character::Character(const Character &source)
 
 Character &Character::operator=(const Character &source)
 {
-	std::cout << BGREEN << "Character assignator" << std::endl << END;
+	// std::cout << BGREEN << "Character assignator" << std::endl << END;
 	this->name = source.name;
 	for (int i = 0; i < 4; i++)
 	{
@@ -58,14 +58,13 @@ Character &Character::operator=(const Character &source)
 
 Character::~Character()
 {
-	std::cout << BGREEN << "Character destructor" << std::endl << END;
+	// std::cout << BGREEN << "Character destructor" << std::endl << END;
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->inventory[i] != NULL)
 		{
-			std::cout << "Metaria " << this->inventory[i]->getType() << " from inventory deleted" << std::endl;
-			delete (this->inventory[i]);
-			
+			std::cout << RED << "Metaria " << this->inventory[i]->getType() << " remaining in inventory at index " << i <<  " deleted" << std::endl << END;
+			delete (this->inventory[i]);			
 		}
 	}
 }
@@ -88,7 +87,7 @@ void	Character::equip(AMateria *m)
 	{
 		if (this->inventory[i] == m)
 		{
-			std::cout << "Materia " << m->getType() << " is already equiped by " << this->getName() << std::endl;
+			std::cout << RED << "Materia " << m->getType() << " is already equiped by " << this->getName() << std::endl << END;
 			return ;
 		}
 	}
@@ -97,36 +96,36 @@ void	Character::equip(AMateria *m)
 		if (this->inventory[i] == NULL)
 		{
 			this->inventory[i] = m;
-			std::cout << "Materia " << m->getType() << " has been equiped by " << this->getName() << std::endl;
+			std::cout << BGREEN << "Materia " << m->getType() << " has been equiped by " << this->getName() << " at index " << i << std::endl << END;
 			return ;
 		}
 	}
-	std::cout << this->getName() << "'s inventory is full" << std::endl;
+	std::cout << RED << this->getName() << "'s inventory is full" << std::endl << END;
 }
 
 void	Character::unequip(int idx)
 {
 	if (this->inventory[idx] != NULL)
 	{
-		std::cout << "Materia " << this->inventory[idx]->getType() << " has been sucessfuly removed from inventory" << std::endl;
+		std::cout << BGREEN << "Materia " << this->inventory[idx]->getType() << " has been sucessfuly removed from inventory at index " << idx << std::endl << END;
 		this->inventory[idx] = NULL;
 	}
 	else
-		std::cout << "This inventory's emplacement is already empty" << std::endl;
+		std::cout << RED << "This inventory's emplacement (" << idx <<  ") is already empty" << std::endl << END;
 }
 
 void	Character::use(int idx, ICharacter &target)
 {
 	if (this->inventory[idx] != NULL)
 	{
-		std::cout << this->getName() << " uses Materia " << this->inventory[idx]->getType() << " on " << target.getName() << std::endl;
+		std::cout << BGREEN << this->getName() << " uses Materia " << this->inventory[idx]->getType() << " on " << target.getName() << std::endl << END;
 		this->inventory[idx]->use(target);
 		delete this->inventory[idx];
 		this->inventory[idx] = NULL;
 	}
 	else
 	{
-		std::cout << "This inventory's emplacement is empty .." <<std::endl;
+		std::cout << RED << "This inventory's emplacement (" << idx <<  ") is empty .." <<std::endl << END;
 	}
 }
 

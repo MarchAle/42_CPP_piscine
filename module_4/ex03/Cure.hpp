@@ -6,25 +6,25 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:25:41 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/17 10:59:56 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/18 10:08:50 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUREMATERIA_HPP
-# define CUREMATERIA_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 # include "AMateria.hpp"
 
-class CureMateria : public AMateria
+class Cure : public AMateria
 {
 private:
 	/* data */
 public:
-	CureMateria();
-	CureMateria(const std::string &type);
-	CureMateria(const CureMateria &source);
-	CureMateria &operator=(const CureMateria &source);
-	~CureMateria();
+	Cure();
+	Cure(const std::string &type);
+	Cure(const Cure &source);
+	Cure &operator=(const Cure &source);
+	~Cure();
 
 	virtual AMateria *clone() const;
 };

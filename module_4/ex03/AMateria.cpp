@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:36:27 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/17 14:48:55 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/18 11:11:44 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 AMateria::AMateria()
 {
-	std::cout << RED << "AMATERIA DEFAULT CONSTRUCTOR" << std::endl << END;
+	// std::cout << RED << "AMATERIA DEFAULT CONSTRUCTOR" << std::endl << END;
 }
 
 AMateria::AMateria(const std::string &type)
 {
-	std::cout << RED << "AMATERIA CONSTRUCTOR" << std::endl << END;
+	// std::cout << RED << "AMATERIA CONSTRUCTOR" << std::endl << END;
 	this->type = type;
 }
 
 AMateria::AMateria(const AMateria &source)
 {
-	std::cout << RED << "AMATERIA COPY CONSTRUCTOR" << std::endl << END;
+	// std::cout << RED << "AMATERIA COPY CONSTRUCTOR" << std::endl << END;
 	this->type = source.type;
 }
 
@@ -37,7 +37,7 @@ AMateria &AMateria::operator=(const AMateria &source)
 
 AMateria::~AMateria()
 {
-	std::cout << RED << "AMATERIA DESTRUCTOR" << std::endl << END;
+	// std::cout << RED << "AMATERIA DESTRUCTOR" << std::endl << END;
 	
 }
 

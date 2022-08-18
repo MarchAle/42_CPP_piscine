@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CureMateria.cpp                                    :+:      :+:    :+:   */
+/*   Cure.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "CureMateria.hpp"
+#include "Cure.hpp"
 
-CureMateria::CureMateria(/* args */)
+Cure::Cure(/* args */)
 {
-	std::cout << "CureMateria default constructor" << std::endl;
+	// std::cout << "Cure default constructor" << std::endl;
+	this->type = "cure";
 }
 
-CureMateria::CureMateria(const std::string &type)
+Cure::Cure(const std::string &type)
 {
-	std::cout << "CureMateria constructor" << std::endl;
+	// std::cout << "Cure constructor" << std::endl;
 	this->type = type;
 }
 
-CureMateria::CureMateria(const CureMateria &source)
+Cure::Cure(const Cure &source)
 {
-	std::cout << "CureMateria copy constructor" << std::endl;
+	// std::cout << "Cure copy constructor" << std::endl;
 	this->type = source.type;
 }
 
-CureMateria &CureMateria::operator=(const CureMateria &source)
+Cure &Cure::operator=(const Cure &source)
 {
-	std::cout << "CureMateria assignator" << std::endl;
+	// std::cout << "Cure assignator" << std::endl;
 	this->type = source.type;
 	return (*this);
 }
 
-CureMateria::~CureMateria()
+Cure::~Cure()
 {
-	std::cout << "CureMateria destructor" << std::endl;
+	// std::cout << "Cure destructor" << std::endl;
 
 }
 
@@ -51,7 +52,7 @@ CureMateria::~CureMateria()
 /*                                                              */
 /* ************************************************************ */
 
-AMateria *CureMateria::clone() const
+AMateria *Cure::clone() const
 {
-	return (new CureMateria(*this));
+	return (new Cure(*this));
 }
