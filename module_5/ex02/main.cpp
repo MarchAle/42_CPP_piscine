@@ -6,48 +6,68 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 14:13:05 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/21 14:30:32 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/21 18:06:00 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
 	try
 	{
-		Bureaucrat philémon("Philémon", 16);
+		Bureaucrat Zzz("Zzz", 150);
+		Bureaucrat philémon("Philémon", 73);
+		Bureaucrat josiette("Josiette", 48);
+		Bureaucrat zaphod("Zaphod", 1);
 		std::cout << std::endl;
 		
-		Form form1("A38", 15, 5);
-		Form form2("A27", 40, 55);
-		Form form3 = form1;
-		Form form4(form2);
-
-		////// Uncomment to throw an exception ////////
-		// Form form5("C032", 100, 151);
-		// Form form6("D77", 1, 0);
-		
+		ShrubberyCreationForm form1("Armand");
+		RobotomyRequestForm form2("Odile");
+		PresidentialPardonForm form3("Clitorin");
 		std::cout << std::endl;
 
 		std::cout << form1;
-		std::cout << form4 << std::endl;
+		std::cout << form2;
+		std::cout << form3 << std::endl;
 
 		philémon.signForm(form1);
-		philémon.signForm(form4);
+		philémon.signForm(form2);
+		philémon.signForm(form3);
 		std::cout << std::endl;
 
 		std::cout << form1;
-		std::cout << form4 << std::endl;
+		std::cout << form2;
+		std::cout << form3 << std::endl;
 
 		philémon.gradeIncrement();
 		std::cout << std::endl;
 		
-		philémon.signForm(form1);
+		philémon.signForm(form2);
 		std::cout << std::endl;
 		
 		std::cout << form1;
-		std::cout << form4 << std::endl;
+		std::cout << form2;
+		std::cout << form3 << std::endl;
+
+		philémon.executeForm(form1);
+		Zzz.executeForm(form1);
+		josiette.executeForm(form2);
+		zaphod.executeForm(form3);
+		std::cout << std::endl;
+
+		zaphod.signForm(form3);
+		std::cout << std::endl;
+		
+		std::cout << form1;
+		std::cout << form2;
+		std::cout << form3 << std::endl;
+		
+		zaphod.executeForm(form2);
+		zaphod.executeForm(form3);
+		std::cout << std::endl;
 	}
 	catch (std::exception &e)
 	{

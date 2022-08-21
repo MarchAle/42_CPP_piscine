@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 13:50:33 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/21 13:50:49 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:54:28 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,15 @@
 # define BBLUE "\x1B[94m"
 # define BMAGENTA "\x1B[95m"
 # define BCYAN "\x1B[96m"
+# define WHITE "\x1B[97m"
 # define END "\033[0m"
 
 # include <iostream>
 # include <stdexcept>
 
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -48,7 +49,8 @@ class Bureaucrat
 		
 		void gradeIncrement();
 		void gradeDecrement();
-		void signForm(Form &form);
+		void signForm(AForm &form);
+		void executeForm(AForm &form);
 
 		std::string getName() const;
 		int			getGrade() const;

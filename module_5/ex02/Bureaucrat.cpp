@@ -6,11 +6,11 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 13:52:18 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/21 14:19:46 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/21 17:44:41 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat() : name("Unknow"), grade(150)
 {
@@ -90,19 +90,35 @@ void	Bureaucrat::gradeDecrement()
 	std::cout << BRED << this->getName() << " has been retrograded rank " << this->getGrade() << ". Bouuuh" << std::endl << END;
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
 		form.beSigned(*this);
-		std::cout << BGREEN << this->name << " signed form " << form.getName() << END << std::endl;
+		std::cout << BGREEN << "✓ " << this->name << " signed form " << form.getName() << END << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cout << BRED << this->name << " couldn't sign form " << form.getName() << " because his grade is to low ! His grade : " << this->grade << " | Required : " << form.getSignGrade() << END << std::endl;
+		std::cout << BRED << "✗ " << this->name << " couldn't sign form " << form.getName() << " because his grade is to low ! His grade : " << this->grade << " | Required : " << form.getSignGrade() << END << std::endl;
 	}
 }
 
+void	Bureaucrat::executeForm(AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << BGREEN << "✓ " << this->name << " executed form " << form.getName() << END << std::endl << std::endl;
+	}
+	catch (AForm::UnsignedFormException &e)
+	{
+		std::cout << BRED << "✗ " << this->name << " can't execute form " << form.getName() << " because it is not signed" << END << std::endl;
+	}
+	catch (AForm::GradeTooLowException &e)
+	{
+		std::cout << BRED << "✗ " << this->name << " can't execute form " << form.getName() << " because his grade is to low ! His grade : " << this->grade << " | Required : " << form.getExecuteGrade()  << END << std::endl;
+	}
+}
 
 /* ************************************************************ */
 /*                                                              */
