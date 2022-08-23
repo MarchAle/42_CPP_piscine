@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 10:55:27 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/21 14:21:54 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/22 15:21:29 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,12 @@ Form::Form(const std::string name, const int grade_to_sign, const int grade_to_e
 
 Form::Form(const Form &source) : name(source.name), is_signed(source.is_signed), grade_to_execute(source.grade_to_execute), grade_to_sign(source.grade_to_sign)
 {
-	// this->name = source.getName();
+}
+
+Form &Form::operator=(const Form &source)
+{
+	*this = source;
+	return (*this);
 }
 
 Form::~Form()

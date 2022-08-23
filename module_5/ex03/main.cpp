@@ -6,13 +6,14 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 14:13:05 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/22 11:42:32 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:11:46 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -22,50 +23,60 @@ int main()
 		Bureaucrat philémon("Philémon", 73);
 		Bureaucrat josiette("Josiette", 48);
 		Bureaucrat zaphod("Zaphod", 1);
+		Intern stagiaire;
 		std::cout << std::endl;
 		
-		ShrubberyCreationForm form1("Armand");
-		RobotomyRequestForm form2("Odile");
-		PresidentialPardonForm form3("Clitorin");
+		AForm *form1;
+		AForm *form2;
+		AForm *form3;
+		AForm *form4;
+		form1 = stagiaire.makeForm("shrubbery creation", "Armand");		
+		form2 = stagiaire.makeForm("robotomy request", "Odile");		
+		form3 = stagiaire.makeForm("presidential pardon", "Clitorin");		
+		form4 = stagiaire.makeForm("blabla", "Bobby");		
 		std::cout << std::endl;
 
-		std::cout << form1;
-		std::cout << form2;
-		std::cout << form3 << std::endl;
+		std::cout << *form1;
+		std::cout << *form2;
+		std::cout << *form3 << std::endl;
 
-		philémon.signForm(form1);
-		philémon.signForm(form2);
-		philémon.signForm(form3);
+		philémon.signForm(*form1);
+		philémon.signForm(*form2);
+		philémon.signForm(*form3);
 		std::cout << std::endl;
 
-		std::cout << form1;
-		std::cout << form2;
-		std::cout << form3 << std::endl;
+		std::cout << *form1;
+		std::cout << *form2;
+		std::cout << *form3 << std::endl;
 
 		philémon.gradeIncrement();
 		std::cout << std::endl;
 		
-		philémon.signForm(form2);
+		philémon.signForm(*form2);
 		std::cout << std::endl;
 		
-		std::cout << form1;
-		std::cout << form2;
-		std::cout << form3 << std::endl;
+		std::cout << *form1;
+		std::cout << *form2;
+		std::cout << *form3 << std::endl;
 
-		philémon.executeForm(form1);
-		josiette.executeForm(form2);
-		zaphod.executeForm(form3);
+		philémon.executeForm(*form1);
+		josiette.executeForm(*form2);
+		zaphod.executeForm(*form3);
 		std::cout << std::endl;
 
-		zaphod.signForm(form3);
+		zaphod.signForm(*form3);
 		std::cout << std::endl;
 		
-		std::cout << form1;
-		std::cout << form2;
-		std::cout << form3 << std::endl;
+		std::cout << *form1;
+		std::cout << *form2;
+		std::cout << *form3 << std::endl;
 		
-		zaphod.executeForm(form2);
-		zaphod.executeForm(form3);
+		zaphod.executeForm(*form2);
+		zaphod.executeForm(*form3);
+
+		delete form1;
+		delete form2;
+		delete form3;
 	}
 	catch (std::exception &e)
 	{

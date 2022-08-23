@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 10:55:27 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/22 15:20:48 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/08/22 15:20:24 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ AForm::AForm(const std::string name, const int grade_to_sign, const int grade_to
 	std::cout << GREEN << "Form " << this->name << " successfuly created" << END << std::endl;
 }
 
+AForm::AForm(const AForm &source) : name(source.name), is_signed(source.is_signed), grade_to_execute(source.grade_to_execute), grade_to_sign(source.grade_to_sign)
+{
+}
+
 AForm &AForm::operator=(const AForm &source)
 {
 	*this = source;
 	return (*this);
-}
-
-AForm::AForm(const AForm &source) : name(source.name), is_signed(source.is_signed), grade_to_execute(source.grade_to_execute), grade_to_sign(source.grade_to_sign)
-{
 }
 
 AForm::~AForm()
