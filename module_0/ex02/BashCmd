@@ -1,0 +1,4 @@
+./test > cmp_log
+cut -c  18- cmp_log | cat > cmp_log_cut
+cut -c  18- log | cat > log_cut
+diff log_cut cmp_log_cut
