@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 15:31:24 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/24 13:41:53 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/03 11:56:27 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int	checkType(std::string input);
 
 void	convertChar(std::string input);
 void	convertInt(std::string input);
+void	convertDouble(std::string input);
+void	convertFloat(std::string input);
 
 #endif

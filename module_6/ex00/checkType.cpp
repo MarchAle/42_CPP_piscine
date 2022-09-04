@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 09:38:52 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/24 13:38:47 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:32:02 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int isInt(std::string input)
 {
 	int start = 0;
 	
+	if (input.length() == 0)
+		return (0);
 	if (input[0] == '-')
 		start = 1;
 	for (int i = start; i < input.length(); i++)
@@ -38,7 +40,7 @@ int isDouble(std::string input)
 	int start = 0;
 	int pointCount = 0;
 	
-	if (!input.compare("-inf") || !input.compare("+inf") || !input.compare("nan"))
+	if (!input.compare("-inf") || !input.compare("+inf") || !input.compare("inf") || !input.compare("nan"))
 		return (1);
 	if (input[0] == '-')
 		start = 1;
@@ -61,7 +63,7 @@ int isFloat(std::string input)
 	int start = 0;
 	int pointCount = 0;
 	
-	if (!input.compare("-inff") || !input.compare("+inff") || !input.compare("nanf") || !input.compare("-infF") || !input.compare("+infF") || !input.compare("nanF"))
+	if (!input.compare("-inff") || !input.compare("+inff") || !input.compare("inff") || !input.compare("nanf") || !input.compare("-infF") || !input.compare("+infF") || !input.compare("nanF"))
 		return (1);
 	if (input[0] == '-')
 		start = 1;

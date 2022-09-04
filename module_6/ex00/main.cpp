@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 15:29:33 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/24 12:02:54 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:25:18 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void convert(std::string input, int type)
 	if (type == INT)
 		convertInt(input);		
 	if (type == DOUBLE)
-		std::cout << "oui c'est un double" << std::endl;
+		convertDouble(input);
 	if (type == FLOAT)
-		std::cout << "oui c'est un float" << std::endl;
+		convertFloat(input);
 	if (type == -1)
-		std::cout << "c'est de la merde" << std::endl;
+		std::cout << "Error : please enter <char> <int> <float> or <double> value" << std::endl;
 	
 }
 
@@ -31,7 +31,7 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cout << "Wrong number of arguments" << std::endl;
+		std::cout << "Error : wrong number of arguments" << std::endl;
 		return (0);
 	}
 	convert(av[1], checkType(av[1]));
