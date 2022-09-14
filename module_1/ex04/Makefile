@@ -6,7 +6,7 @@
 #    By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:06:58 by amarchal          #+#    #+#              #
-#    Updated: 2022/08/06 13:50:21 by amarchal         ###   ########.fr        #
+#    Updated: 2022/09/14 11:33:18 by amarchal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ $(NAME) : $(OBJS) $(INCLUDES) Makefile
 
 clean :
 		rm -rf $(OBJS)
+		rm -rf *.replace
 
 fclean : clean
 		rm -rf $(NAME)

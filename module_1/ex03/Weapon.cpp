@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   weapon.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 16:53:38 by amarchal          #+#    #+#             */
-/*   Updated: 2022/07/31 15:03:55 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/14 11:11:46 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string type)// : type(type)
+Weapon::Weapon(std::string type) : type(type)
 {
-	this->type = type;
 }
 
 Weapon::~Weapon()

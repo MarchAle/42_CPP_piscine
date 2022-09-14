@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 10:38:56 by amarchal          #+#    #+#             */
-/*   Updated: 2022/07/30 14:42:52 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/14 10:54:03 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 Zombie::Zombie()
 {
-	std::cout << "A new zombie is born" << std::endl;
+	std::cout << BGREEN << "Constructor called" << END << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "Destruction of " << this->name << std::endl;
+	std::cout << BRED << "Destruction of " << this->name << END << std::endl;
 }
 
 void	Zombie::announce(void)
 {
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << BLUE << this->name << ": BraiiiiiiinnnzzzZ..." << END << std::endl;
 }
 
-void	Zombie::initialize(std::string name)
+void	Zombie::setName(std::string name)
 {
 	this->name = name;
 }
