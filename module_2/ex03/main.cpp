@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 13:27:35 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/10 13:56:10 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/14 14:01:41 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ int main( void )
 	Point point_in(-2, 2);
 	
 	if (bsp(a, b, c, point_in))
-		std::cout << "The point is in the triangle" << std::endl;
+		std::cout << BGREEN << "The point is in the triangle" << END << std::endl;
 	else
-		std::cout << "The point does not belong to the triangle" << std::endl;
+		std::cout << BRED << "The point does not belong to the triangle" << END << std::endl;
 		
 	/// Point NOT in triangle ///
 	Point point_out(2.5f, 2.5f);
 	point_out = a;
 	
 	if (bsp(a, b, c, point_out))
-		std::cout << "The point is in the triangle" << std::endl;
+		std::cout << BGREEN << "The point is in the triangle" << END << std::endl;
 	else
-		std::cout << "The point does not belong to the triangle" << std::endl;
+		std::cout << BRED << "The point does not belong to the triangle" << END << std::endl;
 		
 	return 0;
 }

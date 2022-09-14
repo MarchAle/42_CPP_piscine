@@ -6,11 +6,11 @@
 #    By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:06:58 by amarchal          #+#    #+#              #
-#    Updated: 2022/08/07 11:42:04 by amarchal         ###   ########.fr        #
+#    Updated: 2022/09/14 15:59:03 by amarchal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := HarlFilter
+NAME := harlFilter
 
 SRCS := 	main.cpp	\
 			Harl.cpp

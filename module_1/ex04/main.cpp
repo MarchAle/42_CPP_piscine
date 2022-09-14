@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:20:41 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/06 14:03:46 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:28:59 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ int	error(int type)
 {
 	if (type == ARG_ERROR)
 		std::cout << "Usage : \"./Replace <filename> <s1> <s2>\"" << std::endl;
-	if (type == FILE_ERROR)
+	if (type == INFILE_ERROR)
 		std::cout << "Could not open file" << std::endl;
+	if (type == OUTFILE_ERROR)
+		std::cout << "Could not write on this file" << std::endl;
 	return (1);
 }
 
@@ -46,10 +48,12 @@ int	main(int ac, char *av[])
 	std::string 	needle = av[2];
 	std::string 	insert = av[3];
 	if (src.fail())
-		return (error(FILE_ERROR));
+		return (error(INFILE_ERROR));
 	std::string		dst_name = av[1];
 	dst_name.append(".replace");
 	std::ofstream	dst (dst_name);
+	if (dst.fail())
+		return (error(OUTFILE_ERROR));
 	while (std::getline(src, line))
 		dst << replace(line, needle, insert) << std::endl;
 	src.close();

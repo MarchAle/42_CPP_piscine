@@ -6,7 +6,7 @@
 #    By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:06:58 by amarchal          #+#    #+#              #
-#    Updated: 2022/07/30 14:20:32 by amarchal         ###   ########.fr        #
+#    Updated: 2022/09/14 13:06:09 by amarchal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CFLAGS := -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) Makefile
+$(NAME) : $(OBJS) $(INCLUDES) Makefile
 		$(CC) $(OBJS) -o $(NAME)
 
 clean :
