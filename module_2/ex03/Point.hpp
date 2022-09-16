@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:32:29 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/14 14:00:38 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:03:27 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Point
 	private:
 		Fixed const	x;
 		Fixed const	y;
+		
 	public:
 		Point();
 		Point(const float x, const float y);

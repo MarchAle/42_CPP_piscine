@@ -6,11 +6,17 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 13:27:49 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/07 16:15:18 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/15 11:46:34 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+/* ************************************************************ */
+/*                            Constructor                       */
+/*                     Copy assignement operator                */
+/*                            Destructor                        */
+/* ************************************************************ */
 
 Fixed::Fixed()
 {
@@ -35,6 +41,12 @@ Fixed &Fixed::operator=(const Fixed &source)
 	this->setRawBits(source.getRawBits());
 	return (*this);
 }
+
+/* ************************************************************ */
+/*                                                              */
+/*                      Member functions                        */
+/*                                                              */
+/* ************************************************************ */
 
 int Fixed::getRawBits() const
 {

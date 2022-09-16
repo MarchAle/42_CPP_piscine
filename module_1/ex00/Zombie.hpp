@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 10:39:27 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/14 10:37:50 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/15 10:16:40 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Zombie
 	private:
 		std::string	name;
 	public:
+		Zombie();
 		Zombie(std::string name);
 		~Zombie();
 		void	announce(void);

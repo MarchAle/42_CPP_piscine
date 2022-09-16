@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 15:43:26 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/10 12:02:04 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:11:40 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	std::cout << "a : " << a.getX() << " " << a.getY() << std::endl;
-	std::cout << "b : " << b.getX() << " " << b.getY() << std::endl;
-	std::cout << "c : " << c.getX() << " " << c.getY() << std::endl;
-	std::cout << "point : " << point.getX() << " " << point.getY() << std::endl;
 	float var1 = ((c.getX() - point.getX()) * (a.getY() - point.getY()) - (c.getY() - point.getY()) * (a.getX() - point.getX()));
 	float var2 = ((a.getX() - point.getX()) * (b.getY() - point.getY()) - (a.getY() - point.getY()) * (b.getX() - point.getX()));
 	float var3 = ((b.getX() - point.getX()) * (c.getY() - point.getY()) - (b.getY() - point.getY()) * (c.getX() - point.getX()));

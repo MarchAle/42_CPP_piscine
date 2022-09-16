@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 13:27:35 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/08 11:54:29 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/15 13:23:27 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( void )
 	Fixed const d( b );
 	
 	a = Fixed( 1234.4321f );
-
+	
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
@@ -30,6 +30,14 @@ int main( void )
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	
+	// Fixed e = a;
+	// Fixed f( e );
+	
+	// std::cout << "e is " << e << std::endl;
+	// std::cout << "e is " << e.toInt() << " as integer" << std::endl;
+	// std::cout << "f is " << f << std::endl;
+	// std::cout << "f is " << f.toInt() << " as integer" << std::endl;
 	
 	return (0);
 }

@@ -6,18 +6,16 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 15:38:37 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/11 16:09:20 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:13:13 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 /* ************************************************************ */
-/*                                                              */
-/*                                                              */
-/*                   Constructors / Destructor                  */
-/*                                                              */
-/*                                                              */
+/*                            Constructor                       */
+/*                     Copy assignement operator                */
+/*                            Destructor                        */
 /* ************************************************************ */
 
 ClapTrap::ClapTrap() : name("Unknow"), lifePts(10), energyPts(10), attackDmg(0)
@@ -33,19 +31,13 @@ ClapTrap::ClapTrap(std::string name) : name(name), lifePts(10), energyPts(10), a
 ClapTrap::ClapTrap(const ClapTrap &source)
 {
 	*this = source;
-	std::cout << GREEN << "Clap Copy constructor : -- Welcome " << this->name << ", you looks exactly like " << source.name << " --" << END << std::endl;
-}
-
-ClapTrap::~ClapTrap()
-{
-	std::cout << RED << "Clap Destructor : -- Destruction of " << this->name << " --" << END << std::endl;
+	std::cout << GREEN << "Clap Copy constructor : -- A copy of " << this->name << " has been made --" << END << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &source)
 {
 	if (this != &source)
 	{
-		std::cout << GREEN << "Clap Copy assignement : -- A copy of " << source.name << " is born ! --" << END << std::endl;
 		this->setName(source.name);
 		this->setLife(source.lifePts);
 		this->setEnergy(source.energyPts);
@@ -54,59 +46,68 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &source)
 	return (*this);
 }
 
+ClapTrap::~ClapTrap()
+{
+	std::cout << RED << "Clap Destructor : -- Destruction of " << this->name << " --" << END << std::endl;
+}
+
 /* ************************************************************ */
 /*                                                              */
-/*                                                              */
-/*                        Action Functions                      */
-/*                                                              */
+/*                        Member Functions                      */
 /*                                                              */
 /* ************************************************************ */
 
 void	ClapTrap::attack(const std::string &target)
 {
-	if (this->energyPts <= 0 && this->lifePts > 0)
+	if (this->lifePts <= 0)
+		std::cout << "Clap " << this->name << " is dead, he can't attack" << std::endl;
+	else if (this->energyPts <= 0)
+		std::cout << "Clap " << this->name << " don't have enough energy to attack ¯\\_(ツ)_/¯" << std::endl;
+	else
 	{
-		std::cout << this->name << " don't have enough energy to attack ¯\\_(ツ)_/¯" << std::endl;
-	}
-	else if (this->energyPts > 0 && this->lifePts > 0)
-	{
-		std::cout 	<< YELLOW << this->name << " attacks " << target
+		std::cout 	<< BGREEN << "Clap " << this->name << " attacks " << target
 					<< " causing " << this->attackDmg
-					<< " points of damage ! (ง'̀-'́)ง" << END << std::endl;
-		this->energyPts--;
+					<< " points of damage ! (ง'̀-'́)ง" 
+					<< " (Energy Points left : " << --this->energyPts << ")"
+					<< END << std::endl;
 	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << BLUE << this->name << " takes " << amount << " points of damage !" << END << std::endl;
-	this->lifePts -= amount;
-	if (this->lifePts <= 0)
+	if (this->lifePts - (int)amount < 0)
 	{
+		amount = this->lifePts;
 		this->lifePts = 0;
-		std::cout << BLUE << this->name << " is dead (҂◡_◡)" << END << std::endl;
 	}
+	else
+		this->lifePts -= amount;
+	std::cout 	<< YELLOW << this->name << " takes " 
+				<< amount << " points of damage !" 
+				<< " (Life Points left : " << this->lifePts << ")"
+				<< END << std::endl;
+	if (this->lifePts == 0)
+		std::cout << BRED << this->name << " is " << (amount == 0 ? "already " : "") << "dead (҂◡_◡)" << END << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->energyPts <= 0 && this->lifePts > 0)
-	{
+	if (this->lifePts <= 0)
+		std::cout << this->name << " is dead, he can't heals himself" << std::endl;
+	else if (this->energyPts <= 0)
 		std::cout << this->name << " don't have enough energy to heal himself ¯\\_(ツ)_/¯" << std::endl;
-	}
-	else if (this->energyPts > 0 && this->lifePts > 0)
+	else
 	{
-		std::cout << BLUE << this->name << " heals himself (+" << amount << " pts !) ( ˘ ³˘)♥" << END << std::endl;
+		std::cout 	<< BLUE << this->name << " heals himself (+" << amount << " pts !) ( ˘ ³˘)♥" 
+					<< " (Energy Points left : " << --this->energyPts << ")"
+					<< END << std::endl;
 		this->lifePts += amount;
-		this->energyPts--;
 	}
 }
 
 /* ************************************************************ */
 /*                                                              */
-/*                                                              */
 /*                            Getter                            */
-/*                                                              */
 /*                                                              */
 /* ************************************************************ */
 
@@ -132,9 +133,7 @@ int	ClapTrap::getAttackDmg() const
 
 /* ************************************************************ */
 /*                                                              */
-/*                                                              */
 /*                            Setter                            */
-/*                                                              */
 /*                                                              */
 /* ************************************************************ */
 

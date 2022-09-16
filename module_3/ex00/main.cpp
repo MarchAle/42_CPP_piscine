@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 15:38:25 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/11 11:49:28 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:16:15 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main()
 	ClapTrap two("Gilberte");
 	ClapTrap three(one);
 
+	std::cout << std::endl;
+
 	one.attack(zero.getName());
 	two.takeDamage(one.getAttackDmg());
 
@@ -26,8 +28,6 @@ int	main()
 	two.takeDamage(one.getAttackDmg());
 	
 	two.beRepaired(10);
-
-	two.beRepaired(10);
 	
 	two.attack(one.getName());
 	one.takeDamage(two.getAttackDmg());
@@ -47,16 +47,16 @@ int	main()
 	
 	one.attack(two.getName());
 	two.takeDamage(one.getAttackDmg());
-	
-	two.attack(one.getName());
-	one.takeDamage(two.getAttackDmg());
 
+	std::cout << std::endl;
 	one.beRepaired(10);
-	one.beRepaired(10);
-	one.beRepaired(10);
+	one.beRepaired(15);
+	one.beRepaired(20);
 	one.beRepaired(10);
 	one.beRepaired(10);
 	one.attack(two.getName());
+	
+	std::cout << std::endl;
 	
 	return (0);
 }

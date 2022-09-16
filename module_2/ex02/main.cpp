@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 13:27:35 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/10 13:35:30 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:09:49 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main( void )
 	Fixed const	d( Fixed( 5.05f ) - Fixed( 2 ) );
 	Fixed		e( Fixed( 5.05f ) + Fixed( 2 ) );
 	e = c;
+	e = e;
 	
 	std::cout << "### Increment / Decrement tests ###" << std::endl;
 	std::cout << a << std::endl;

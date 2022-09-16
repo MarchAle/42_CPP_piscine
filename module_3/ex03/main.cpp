@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 15:38:25 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 11:38:30 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:40:17 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main()
 	std::cout << "LifePts : " << scav_1.getLife() << ", EnergyPts : " << scav_1.getEnergy() << ", AttackDmg : " << scav_1.getAttackDmg() << std::endl << std::endl;
 	std::cout << "I am a FragTrap named " << frag_1.getName() << ", my characteristics are :" << std::endl;
 	std::cout << "LifePts : " << frag_1.getLife() << ", EnergyPts : " << frag_1.getEnergy() << ", AttackDmg : " << frag_1.getAttackDmg() << std::endl << std::endl;
-	std::cout << "I am a DiamondTrap, my characteristics are :" << std::endl;
+	std::cout << "I am a DiamondTrap named " << diamond_1.getName() << ", my characteristics are :" << std::endl;
 	std::cout << "LifePts : " << diamond_1.getLife() << ", EnergyPts : " << diamond_1.getEnergy() << ", AttackDmg : " << diamond_1.getAttackDmg() << std::endl << std::endl;
 	
 	std::cout  << "Who Am I ??" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 13:27:35 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/14 14:01:41 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:06:23 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main( void )
 	/// Point in triangle ///
 	Point a(-3.5f, -1.5);
 	Point b(5, 1.2f);
-	Point c(-1.8, 4);
+	Point c(-1.8f, 4);
 	Point point_in(-2, 2);
 	
 	if (bsp(a, b, c, point_in))

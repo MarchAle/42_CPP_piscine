@@ -6,11 +6,17 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 13:27:49 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/08 14:11:11 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/15 13:47:43 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+/* ************************************************************ */
+/*                            Constructor                       */
+/*                     Copy assignement operator                */
+/*                            Destructor                        */
+/* ************************************************************ */
 
 Fixed::Fixed()
 {
@@ -48,6 +54,12 @@ Fixed &Fixed::operator=(const Fixed &source)
 	return (*this);
 }
 
+/* ************************************************************ */
+/*                                                              */
+/*                      Member functions                        */
+/*                                                              */
+/* ************************************************************ */
+
 float	Fixed::toFloat(void) const
 {
 	return ((float)this->nb / (1 << this->bits));
@@ -67,6 +79,12 @@ void	Fixed::setRawBits(int const raw)
 {
 	this->nb = raw;
 }
+
+/* ************************************************************ */
+/*                                                              */
+/*                     Insertion operator                       */
+/*                                                              */
+/* ************************************************************ */
 
 std::ostream &operator<<(std::ostream &stream, const Fixed &source)
 {

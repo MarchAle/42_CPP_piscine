@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 15:38:25 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/11 15:34:30 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/16 13:39:09 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,33 @@
 
 int	main()
 {
-	ClapTrap clap_1("Clap_Gilles");
+	ClapTrap clap1("Roger");
+	ScavTrap scav1("Bruno");
+	ScavTrap scav2;
+	scav2 = scav1;
+	scav2.setName("Albert");
+	ScavTrap scav3(scav2);
 
-	ScavTrap scav_0;
-	ScavTrap scav_1("Scav_Brouette");
-	ScavTrap scav_2("Scav_Pelle");
-
-	clap_1.attack(scav_1.getName());
-	scav_1.takeDamage(clap_1.getAttackDmg());
-	scav_1.attack(clap_1.getName());
-	clap_1.takeDamage(scav_1.getAttackDmg());
+	std::cout << std::endl << WHITE << "~~ scav1 attacks scav3 ~~" << END << std::endl;
+	scav1.attack(scav3.getName());
+	scav3.takeDamage(scav1.getAttackDmg());
 	
-	std::cout << scav_1.getEnergy() << std::endl;
-	std::cout << scav_0.getEnergy() << std::endl;
-	scav_0 = scav_1;
-	std::cout << scav_0.getEnergy() << std::endl;
+	scav3.beRepaired(15);
+	scav1.attack(scav3.getName());
+	scav3.takeDamage(67);
+	scav1.attack(scav3.getName());
+	scav3.takeDamage(20);
+	scav1.attack(scav3.getName());
+	scav3.takeDamage(20);
+	scav3.takeDamage(20);
+	scav3.beRepaired(15);
+	scav3.attack(scav1.getName());
 	
-	scav_1.guardGate();
-	scav_0.attack(scav_1.getName());
-	scav_1.takeDamage(scav_0.getAttackDmg());
+	std::cout << WHITE << std::endl << "~~ clap1 attacks scav1 ~~" << END << std::endl;
+	clap1.attack(scav1.getName());
+	scav1.takeDamage(clap1.getAttackDmg());
+	scav1.guardGate();
 	
+	std::cout << std::endl;
 	return (0);
 }

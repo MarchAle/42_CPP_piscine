@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 15:37:33 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 11:43:59 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:05:02 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,16 @@
 
 # include "ScavTrap.hpp"
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : public ClapTrap
 {
-	protected:
-		const int class_lifePts;
-		const int class_energyPts;
-		const int class_attackDmg;
-		
 	public:
 		FragTrap();
 		FragTrap(const std::string name);
 		FragTrap(const FragTrap &source);
 		~FragTrap();
-
 		FragTrap	&operator=(const FragTrap &source);
 
 		void	highFivesGuys(void);
 };
-
-
 
 #endif
