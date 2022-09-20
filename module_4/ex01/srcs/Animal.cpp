@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 15:49:07 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 16:29:11 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 13:22:30 by amarchal          #+#    #+#             */
+/*   Updated: 2022/09/19 16:27:00 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "../incs/Animal.hpp"
 
-WrongAnimal::WrongAnimal(/* args */)
+Animal::Animal()
 {
-	std::cout << RED << "WrongAnimal's default constructor called" << END << std::endl;
+	std::cout << GREEN << "Animal's default constructor called" << END << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &source)
+Animal::Animal(const Animal &source)
 {
-	std::cout << RED << "WrongAnimal's copy constructor called" << END << std::endl;
+	std::cout << GREEN << "Animal's copy constructor called" << END << std::endl;
 	*this = source;
 }
 
-WrongAnimal::~WrongAnimal()
+Animal::~Animal()
 {
-	std::cout << RED << "WrongAnimal's destructor called" << END << std::endl;
+	std::cout << GREEN << "Animal's destructor called" << END << std::endl;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &source)
+Animal	&Animal::operator=(const Animal &source)
 {
-	std::cout << RED << "WrongAnimal's assignator called" << END << std::endl;
+	this->type = source.getType();
 	return (*this);
 }
 
@@ -42,9 +42,9 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &source)
 /*                                                              */
 /* ************************************************************ */
 
-void	WrongAnimal::makeSound() const
+void	Animal::makeSound() const
 {
-	std::cout << RED << "* bleuhrk ! WrongAnimal noise *" << END << std::endl;
+	std::cout << GREEN << "* undefined animal's noise *" << END << std::endl;
 }
 
 /* ************************************************************ */
@@ -55,7 +55,7 @@ void	WrongAnimal::makeSound() const
 /*                                                              */
 /* ************************************************************ */
 
-std::string WrongAnimal::getType() const
+std::string Animal::getType() const
 {
 	return (this->type);
 }

@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 13:43:23 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 16:28:33 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 14:01:35 by amarchal          #+#    #+#             */
+/*   Updated: 2022/09/19 14:16:42 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "../incs/Cat.hpp"
 
-Dog::Dog(/* args */)
+Cat::Cat()
 {
-	std::cout << BLUE << "Dog's default constructor called" << END << std::endl;
-	this->type = "Dog";
+	std::cout << BLUE << "Cat's default constructor called" << END << std::endl;
+	this->type = "Cat";
 }
 
-Dog::Dog(const Dog &source)
+Cat::Cat(const Cat &source)
 {
-	std::cout << BLUE << "Dog's copy constructor called" << END << std::endl;
+	std::cout << BLUE << "Cat's copy constructor called" << END << std::endl;
 	*this = source;
 }
 
-Dog::~Dog()
+Cat	&Cat::operator=(const Cat &source)
 {
-	std::cout << BLUE << "Dog's destructor called" << END << std::endl;
+	this->type = source.getType();
+	return (*this);
 }
 
-Dog &Dog::operator=(const Dog &source)
+Cat::~Cat()
 {
-	std::cout << BLUE << "Dog's assignator called" << END << std::endl;
-	return (*this);
+	std::cout << BLUE << "Cat's destructor called" << END << std::endl;
 }
 
 /* ************************************************************ */
@@ -43,7 +43,7 @@ Dog &Dog::operator=(const Dog &source)
 /*                                                              */
 /* ************************************************************ */
 
-void	Dog::makeSound() const
+void	Cat::makeSound() const
 {
-	std::cout << BLUE << "Wahouaf wahouaf ..." << END << std::endl;
+	std::cout << BLUE << "Mi-ahou mi-ahou ..." << END << std::endl;
 }

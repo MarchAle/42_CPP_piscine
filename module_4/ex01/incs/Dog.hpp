@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 13:21:52 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/16 11:34:42 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 13:43:49 by amarchal          #+#    #+#             */
+/*   Updated: 2022/09/20 11:07:12 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongCat.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int	main()
+# include "Animal.hpp"
+# include "Brain.hpp"
+
+class Dog : public Animal
 {
-	Animal *tabAnim[10];
-	int arrLenght = sizeof(tabAnim) / sizeof(Animal *);
-	
-	for (int i = 0; i < arrLenght; i++)
-	{
-		if (i % 2)
-			tabAnim[i] = new Dog;
-		else
-			tabAnim[i] = new Cat;
-	}
-	for (int i = 0; i < arrLenght; i++)
-	{
-		tabAnim[i]->makeSound();
-		delete tabAnim[i];
-	}
-	
-	// Dog basic;
-	// Dog tmp = basic;
+	private:
+		Brain* brain;
+	public:
+		Dog();
+		Dog(const Dog &source);
+		Dog &operator=(const Dog &source);
+		virtual ~Dog();
+		
+		void	makeSound() const;
+		Brain &getBrain();
+};
 
-	return (0);
-}
+#endif

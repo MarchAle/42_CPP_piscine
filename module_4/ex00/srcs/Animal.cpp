@@ -6,13 +6,13 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:22:30 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 16:28:59 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:15:46 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../incs/Animal.hpp"
 
-Animal::Animal(/* args */)
+Animal::Animal() : type("Animal")
 {
 	std::cout << GREEN << "Animal's default constructor called" << END << std::endl;
 }
@@ -30,7 +30,7 @@ Animal::~Animal()
 
 Animal	&Animal::operator=(const Animal &source)
 {
-	std::cout << GREEN << "Animal's assignator called" << END << std::endl;
+	this->type = source.getType();
 	return (*this);
 }
 

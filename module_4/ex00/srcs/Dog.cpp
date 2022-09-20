@@ -6,38 +6,33 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:43:23 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/16 11:13:13 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:16:17 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "../incs/Dog.hpp"
 
 Dog::Dog()
 {
-	std::cout << BLUE << "Dog's default constructor called" << END << std::endl;
-	this->dogBrain = new Brain();
+	std::cout << CYAN << "Dog's default constructor called" << END << std::endl;
 	this->type = "Dog";
 }
 
 Dog::Dog(const Dog &source)
 {
-	std::cout << BLUE << "Dog's copy constructor called" << END << std::endl;
-	this->dogBrain = new Brain();
-	this->type = source.getType();
-}
-
-Dog &Dog::operator=(const Dog &source)
-{
-	std::cout << BLUE << "Dog's assignator called" << END << std::endl;
-	this->dogBrain = new Brain();
-	this->type = source.getType();
-	return (*this);
+	std::cout << CYAN << "Dog's copy constructor called" << END << std::endl;
+	*this = source;
 }
 
 Dog::~Dog()
 {
-	std::cout << BLUE << "Dog's destructor called" << END << std::endl;
-	delete this->dogBrain;
+	std::cout << CYAN << "Dog's destructor called" << END << std::endl;
+}
+
+Dog &Dog::operator=(const Dog &source)
+{
+	this->type = source.getType();
+	return (*this);
 }
 
 /* ************************************************************ */
@@ -50,5 +45,5 @@ Dog::~Dog()
 
 void	Dog::makeSound() const
 {
-	std::cout << BLUE << "Wahouaf wahouaf ..." << END << std::endl;
+	std::cout << CYAN << "Wahouaf wahouaf ..." << END << std::endl;
 }

@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 14:01:35 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 16:28:43 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 16:44:40 by amarchal          #+#    #+#             */
+/*   Updated: 2022/09/20 10:15:06 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "../incs/Brain.hpp"
 
-Cat::Cat(/* args */)
+Brain::Brain()
 {
-	std::cout << ORANGE << "Cat's default constructor called" << END << std::endl;
-	this->type = "Cat";
+	std::cout << YELLOW << "Brain's default constructor called" << END << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		this->ideas[i] = "";
+	}
 }
 
-Cat::Cat(const Cat &source)
+Brain::Brain(const Brain &source)
 {
-	std::cout << ORANGE << "Cat's copy constructor called" << END << std::endl;
+	std::cout << YELLOW << "Brain's copy constructor called" << END << std::endl;
 	*this = source;
 }
 
-Cat	&Cat::operator=(const Cat &source)
+Brain::~Brain()
 {
-	std::cout << ORANGE << "Cat's assignator called" << END << std::endl;
-	return (*this);
+	std::cout << YELLOW << "Brain's destructor called" << END << std::endl;
 }
 
-Cat::~Cat()
+Brain	&Brain::operator=(const Brain &source)
 {
-	std::cout << ORANGE << "Cat's	destructor called" << END << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		this->ideas[i] = source.getIdea(i);
+	}
+	return (*this);	
 }
 
 /* ************************************************************ */
@@ -43,7 +49,18 @@ Cat::~Cat()
 /*                                                              */
 /* ************************************************************ */
 
-void	Cat::makeSound() const
+std::string Brain::getIdea(unsigned i) const
 {
-	std::cout << ORANGE << "Mi-ahou mi-ahou ..." << END << std::endl;
+	if (i >= 100)
+		return ("");
+	else
+		return this->ideas[i];
+}
+
+void		Brain::setIdea(unsigned i, std::string idea)
+{
+	if (i >= 100)
+		std::cout << "Error : this idea can't fit in this brain" << std::endl;
+	else
+		this->ideas[i] = idea;
 }

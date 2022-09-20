@@ -6,13 +6,13 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:49:07 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 16:29:11 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:40:36 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "../incs/WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(/* args */)
+WrongAnimal::WrongAnimal()
 {
 	std::cout << RED << "WrongAnimal's default constructor called" << END << std::endl;
 }
@@ -30,7 +30,7 @@ WrongAnimal::~WrongAnimal()
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &source)
 {
-	std::cout << RED << "WrongAnimal's assignator called" << END << std::endl;
+	this->type = source.getType();
 	return (*this);
 }
 

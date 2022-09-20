@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:22:21 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 16:23:36 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:03:58 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,20 @@
 # define END "\033[0m"
 
 # include <iostream>
+# include <array>
 
 class Animal
 {
-	private:
-		/* data */
 	protected:
 		std::string	type;
 	public:
-		Animal(/* args */);
+		Animal();
 		Animal(const Animal &source);
-		~Animal();
 		Animal	&operator=(const Animal &source);
+		virtual ~Animal();
+		
 		virtual void makeSound() const;
 		std::string	getType() const;
 };
-
 
 #endif

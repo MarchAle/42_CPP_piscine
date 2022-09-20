@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 16:06:15 by amarchal          #+#    #+#             */
-/*   Updated: 2022/08/15 16:28:24 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 14:01:35 by amarchal          #+#    #+#             */
+/*   Updated: 2022/09/20 11:13:10 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../incs/Cat.hpp"
 
-WrongCat::WrongCat(/* args */)
+Cat::Cat()
 {
-	this->type = "WrongCat";
-	std::cout << PURPLE << "WrongCat's default constructor called" << END << std::endl;
+	std::cout << ORANGE << "Cat's default constructor called" << END << std::endl;
+	this->brain = new Brain();
+	this->type = "Cat";
 }
 
-WrongCat::WrongCat(const WrongCat &source)
+Cat::Cat(const Cat &source)
 {
-	this->type = "WrongCat";
-	std::cout << PURPLE << "WrongCat's copy constructor called" << END << std::endl;
+	std::cout << ORANGE << "Cat's copy constructor called" << END << std::endl;
 	*this = source;
 }
 
-WrongCat::~WrongCat()
+Cat	&Cat::operator=(const Cat &source)
 {
-	std::cout << PURPLE << "WrongCat's destructor called" << END << std::endl;
-}
-
-WrongCat	&WrongCat::operator=(const WrongCat &source)
-{
-	std::cout << PURPLE << "WrongCat's assignator called" << END << std::endl;
+	std::cout << "cat assignator" << std::endl;
+	this->type = source.getType();
+	this->brain = new Brain;
+	*(this->brain) = *(source.brain);
 	return (*this);
 }
 
+Cat::~Cat()
+{
+	delete this->brain;
+	std::cout << ORANGE << "Cat's destructor called" << END << std::endl;
+}
 
 /* ************************************************************ */
 /*                                                              */
@@ -45,7 +48,12 @@ WrongCat	&WrongCat::operator=(const WrongCat &source)
 /*                                                              */
 /* ************************************************************ */
 
-void	WrongCat::makeSound() const
+void	Cat::makeSound() const
 {
-	std::cout << PURPLE << "Wrong miaou wrong miaou .." << END << std::endl;
+	std::cout << ORANGE << "Mi-ahou mi-ahou ..." << END << std::endl;
+}
+
+Brain &Cat::getBrain()
+{
+	return (*(this->brain));
 }
