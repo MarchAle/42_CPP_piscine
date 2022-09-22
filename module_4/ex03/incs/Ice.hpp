@@ -1,17 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 17:57:17 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/22 10:59:02 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/16 14:31:25 by amarchal          #+#    #+#             */
+/*   Updated: 2022/08/18 10:09:03 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
 
-Base::~Base()
+# include "AMateria.hpp"
+
+class Ice : public AMateria
 {
-}
+	public:
+		Ice();
+		Ice(const Ice &source);
+		Ice &operator=(const Ice &source);
+		~Ice();
+		
+		virtual Ice *clone() const;
+};
+
+#endif

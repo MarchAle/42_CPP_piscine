@@ -1,17 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 17:57:17 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/22 10:59:02 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 16:44:26 by amarchal          #+#    #+#             */
+/*   Updated: 2022/09/20 11:25:17 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-Base::~Base()
+# include "AAnimal.hpp"
+
+class Brain
 {
-}
+	private:
+		std::string ideas[100];
+	public:
+		Brain();
+		Brain(const Brain &source);
+		Brain &operator=(const Brain &source);
+		~Brain();
+
+		std::string getIdea(unsigned i) const;
+		void		setIdea(unsigned i, std::string idea);
+};
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:44:41 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/03 17:21:07 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:57:19 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main()
 {
 	Data data("Roger", 63);
 	std::cout << BBLUE << "Name : " << data.getName() << " | Age : " << data.getAge() << END << std::endl;
+	
 	std::cout << BRED << "Serialisation of Roger" << END << std::endl;
 	uintptr_t ptr = serialize(&data);
 	std::cout << BGREEN << "Deserialisation of Roger" << END << std::endl;

@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:21:52 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/21 12:05:27 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/21 12:05:04 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@
 
 int	main()
 {
+	// std::cout << "[ TRY TO INSTANCIATE ANIMAL ]" << std::endl;
+	// AAnimal animal("cat");
+	
 	std::cout << "[ TEST TAB OF ANIMALS ]" << std::endl;
 	{	
-		Animal *tabAnim[4];
-		int arrLenght = sizeof(tabAnim) / sizeof(Animal *);
+		AAnimal *tabAnim[4];
+		int arrLenght = sizeof(tabAnim) / sizeof(AAnimal *);
 
 		std::cout << "[ construction ]" << std::endl;
 		for (int i = 0; i < arrLenght; i++)

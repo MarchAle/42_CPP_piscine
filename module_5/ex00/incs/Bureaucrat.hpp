@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 16:46:14 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/22 10:55:30 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/18 13:50:33 by amarchal          #+#    #+#             */
+/*   Updated: 2022/09/21 16:09:05 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 # define RED "\x1B[31m"
 # define GREEN "\x1B[32m"
@@ -29,21 +29,39 @@
 # define END "\033[0m"
 
 # include <iostream>
+# include <stdexcept>
 
-class Data
+class Bureaucrat
 {
 	private:
-		std::string	name;
-		int			age;
+		const std::string	name;
+		int					grade;
 	public:
-		Data();
-		Data(const std::string name, int age);
-		Data(const Data &source);
-		Data &operator=(const Data &source);
-		~Data();
+		Bureaucrat();
+		Bureaucrat(const std::string &name, const int grade);
+		Bureaucrat(const Bureaucrat &source);
+		Bureaucrat &operator=(const Bureaucrat &source);
+		~Bureaucrat();
 		
+		void gradeIncrement();
+		void gradeDecrement();
+
 		std::string getName() const;
-		int			getAge() const;
+		int			getGrade() const;
+		
+		class GradeTooHighException : public std::exception 
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+		
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
 };
+
+std::ostream 	&operator<<(std::ostream &stream, const Bureaucrat &source);
 
 #endif

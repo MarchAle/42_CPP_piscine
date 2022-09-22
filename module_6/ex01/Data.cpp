@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:46:42 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/03 17:16:08 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:55:37 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ Data::Data(const Data &source)
 
 Data	&Data::operator=(const Data &source)
 {
-	*this = source;
+	this->age = source.getAge();
+	this->name = source.getName();
 	return (*this);
 }
 
@@ -35,12 +36,12 @@ Data::~Data()
 {
 }
 
-std::string Data::getName()
+std::string Data::getName() const
 {
 	return (this->name);
 }
 
-int Data::getAge()
+int Data::getAge() const
 {
 	return (this->age);
 }

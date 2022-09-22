@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 16:46:14 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/22 10:55:30 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/16 13:36:32 by amarchal          #+#    #+#             */
+/*   Updated: 2022/09/21 11:34:27 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
 # define RED "\x1B[31m"
 # define GREEN "\x1B[32m"
@@ -29,21 +29,26 @@
 # define END "\033[0m"
 
 # include <iostream>
+# include <string>
+# include "ICharacter.hpp"
 
-class Data
+class ICharacter;
+
+class AMateria
 {
-	private:
-		std::string	name;
-		int			age;
-	public:
-		Data();
-		Data(const std::string name, int age);
-		Data(const Data &source);
-		Data &operator=(const Data &source);
-		~Data();
+	protected:
+		std::string	type;
 		
-		std::string getName() const;
-		int			getAge() const;
+	public:
+		AMateria();
+		AMateria(const std::string &type);
+		AMateria(const AMateria &source);
+		virtual ~AMateria();
+		AMateria &operator=(const AMateria &source);
+
+		std::string const &getType() const;
+		virtual AMateria *clone() const = 0;
+		virtual void use(ICharacter &target);
 };
 
 #endif

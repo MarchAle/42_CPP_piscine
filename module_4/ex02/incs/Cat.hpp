@@ -1,17 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 17:57:17 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/22 10:59:02 by amarchal         ###   ########.fr       */
+/*   Created: 2022/08/15 14:00:10 by amarchal          #+#    #+#             */
+/*   Updated: 2022/09/20 11:25:26 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-Base::~Base()
+# include "AAnimal.hpp"
+# include "Brain.hpp"
+
+class Cat : public AAnimal
 {
-}
+	private:
+		Brain* brain;
+	public:
+		Cat();
+		Cat(const Cat &source);
+		Cat &operator=(const Cat &source);
+		virtual ~Cat();
+		
+		void makeSound() const;
+		Brain &getBrain();
+};
+
+#endif

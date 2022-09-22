@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 09:41:05 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/03 16:21:37 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:46:04 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void	convertDouble(std::string input)
 {
 	double 	value;
 
-	// value = std::stod(input);
 	value = std::atof(input.c_str());
 	std::cout << std::fixed;
 	if ((value >= 0 && value < 32) || value == 127)

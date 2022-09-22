@@ -6,31 +6,45 @@
 #    By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 15:06:58 by amarchal          #+#    #+#              #
-#    Updated: 2022/08/21 11:35:09 by amarchal         ###   ########.fr        #
+#    Updated: 2022/09/21 16:54:34 by amarchal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := Bureaucrat
+NAME 		:= Bureaucrat
+CC 			:= c++
+CFLAGS	 	:= -Wall -Wextra -Werror -std=c++98
 
-SRCS := 	main.cpp				\
-			Bureaucrat.cpp			\
-			Form.cpp
+DIR_SRCS	:= ./srcs
+DIR_OBJS	:= ./objs
+DIR_INCS	:= ./incs
+
+LST_SRCS	:=	main.cpp		\
+				Bureaucrat.cpp	\
+				Form.cpp		\
 		
-INCLUDES :=	Bureaucrat.hpp			\
-			Form.hpp
+LST_INCS	:=	Bureaucrat.hpp	\
+				Form.hpp		\
 			
-OBJS := $(SRCS:.cpp=.o)
+LST_OBJS := $(LST_SRCS:.cpp=.o)
 
-CC := c++
-CFLAGS := -Wall -Wextra -Werror -std=c++98
+SRCS := $(addprefix $(DIR_SRCS)/, $(LST_SRCS))
+OBJS := $(addprefix $(DIR_OBJS)/, $(LST_OBJS))
+INCS := $(addprefix $(DIR_INCS)/, $(LST_INCS))
 
 all : $(NAME)
 
-$(NAME) : $(OBJS) $(INCLUDES) Makefile
+$(NAME) : $(OBJS) $(INCS) Makefile
 		$(CC) $(OBJS) -o $(NAME)
+
+$(DIR_OBJS):
+		mkdir -p $(DIR_OBJS)
+
+$(DIR_OBJS)/%.o: $(DIR_SRCS)/%.cpp $(INCS) Makefile | $(DIR_OBJS)
+		$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
 		rm -rf $(OBJS)
+		rm -rf $(DIR_OBJS)
 
 fclean : clean
 		rm -rf $(NAME)
