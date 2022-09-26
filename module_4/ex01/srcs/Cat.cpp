@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 14:01:35 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/20 11:13:10 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/22 13:09:27 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ Cat::Cat(const Cat &source)
 Cat	&Cat::operator=(const Cat &source)
 {
 	std::cout << "cat assignator" << std::endl;
-	this->type = source.getType();
+	this->type = source.type;
 	this->brain = new Brain;
-	*(this->brain) = *(source.brain);
+	this->brain = source.brain;
 	return (*this);
 }
 

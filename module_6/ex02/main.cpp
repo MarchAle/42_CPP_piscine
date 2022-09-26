@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:27:20 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/22 11:05:18 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:07:46 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,11 @@ int main()
 	
 	Base *base = generate();
 	Base *sourceBase = new (Base);
+	Base *abc = base;
 	std::cout << std::endl;
 	
 	identify(base);
+	identify(abc);
 	identify(*base);
 	std::cout << std::endl;
 	

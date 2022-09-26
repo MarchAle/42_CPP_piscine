@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:44:41 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/22 10:57:19 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:19:35 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int main()
 	
 	std::cout << BRED << "Serialisation of Roger" << END << std::endl;
 	uintptr_t ptr = serialize(&data);
+	std::cout << ptr << std::endl;
 	std::cout << BGREEN << "Deserialisation of Roger" << END << std::endl;
 	Data *newData = deserialize(ptr);
 

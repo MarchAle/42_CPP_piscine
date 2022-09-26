@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:21:52 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/21 12:05:27 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/22 13:12:58 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ int	main()
 	std::cout << std::endl << "[ TEST DEEP COPY OF BRAIN ]" << std::endl;
 	{
 		Dog basic;
+		basic.getBrain().setIdea(1, "eat shit");
 		std::cout << "----" << std::endl;
 		Dog tmp = basic;
 		std::cout << "----" << std::endl;
 		Dog herve(basic);
 		std::cout << "----" << std::endl;
 		
-		basic.getBrain().setIdea(1, "eat shit");
 		tmp.getBrain().setIdea(2, "smell ass");
 		herve.getBrain().setIdea(2, "bite grandma");
 		basic.getBrain().setIdea(151, "fuck couch");
