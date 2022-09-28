@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:53:58 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/26 17:41:26 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/28 14:00:44 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,15 @@ void	Span::addLotsNumber(int n)
 	if (n > this->size)
 		throw Span::TooManyElements();
 	std::vector<int> toInsert(n, 0);
-	for(int i = 0; i < n; i++)
-	{
-		toInsert[i] = rand() % 1000;
-	}
+	
+	///// FACON 1 ///////
+	for(std::vector<int>::iterator it = toInsert.begin(); it != toInsert.end(); it++)
+		*it = rand() % 1000;
+	
+	///// FACON 2 ///////
+	// for(int insert : toInsert)
+	// 	insert = rand() % 1000;
+	
 	this->container.insert(this->container.begin(), toInsert.begin(), toInsert.end());
 }
 
@@ -97,7 +102,7 @@ int	Span::longestSpan()
 /* ************************************************************ */
 /*                                                              */
 /*                                                              */
-/*                           Exceptions                         */
+/*                            Getter                            */
 /*                                                              */
 /*                                                              */
 /* ************************************************************ */

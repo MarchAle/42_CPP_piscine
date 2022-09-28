@@ -6,7 +6,7 @@
 /*   By: amarchal <amarchal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:31:42 by amarchal          #+#    #+#             */
-/*   Updated: 2022/09/04 15:44:04 by amarchal         ###   ########.fr       */
+/*   Updated: 2022/09/27 09:50:10 by amarchal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void multiplyByTwo(int &nb)
 
 int	main()
 {
-	std::string stringTab[] = {"l'herbe", "d'Auchan", "ne", "rigole", "que", "rarement"};
+	std::string stringTab[] = {"je", "mange", "des", "pates", "a", "l'ail"};
 	int			stringTabSize = sizeof(stringTab) / sizeof(std::string);
 	int			intTab[] = {1, 5, 31, 3, 17};
 	int			intTabSize = sizeof(intTab) / sizeof(int);
