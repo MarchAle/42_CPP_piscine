@@ -1,10 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
-#include <ctime>
-#include <cstdlib>
 #include "../incs/BitcoinExchange.hpp"
  
 int dateToTimestamp(std::string date)
@@ -50,15 +43,5 @@ int main(int ac, char** av)
         return(1);
     }
     BtcEx.processInput(historic, input);
-
-    
-    std::vector<std::pair<int, float> >::iterator it = historic.begin();
-    while (it != historic.end())
-    {
-        // std::cout << (*it).first << " " << (*it).second << std::endl;
-        it++;
-    }
-    (void)ac;
-    (void)av;
     return (0);
 }

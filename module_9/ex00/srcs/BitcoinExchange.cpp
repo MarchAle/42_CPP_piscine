@@ -3,7 +3,7 @@
 /*#################### CANONICAL FORM ####################*/
 BitcoinExchange::BitcoinExchange(){}
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &src){*this = src;}
-BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src){return (*this);}
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src){return (*this); (void)src;}
 BitcoinExchange::~BitcoinExchange(){}
 
 /*#################### MEMBER FUNCITONS ####################*/
@@ -59,7 +59,7 @@ int BitcoinExchange::isFloat(std::string value)
 {
     int dot = 0;
 
-    for (int i = 0; i < value.length(); i++)
+    for (size_t i = 0; i < value.length(); i++)
     {
         if (value[i] == '.')
         {

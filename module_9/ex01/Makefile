@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME 		:= btc
+NAME 		:= RPN
 CC 			:= c++
 CFLAGS	 	:=  -std=c++98 -Wall -Wextra -Werror
 
@@ -19,9 +19,9 @@ DIR_OBJS	:= ./objs
 DIR_INCS	:= ./incs
 
 LST_SRCS	:=	main.cpp		\
-				BitcoinExchange.cpp
+				Rpn.cpp
 		
-LST_INCS	:=	BitcoinExchange.hpp	\
+LST_INCS	:=	Rpn.hpp	\
 			
 LST_OBJS := $(LST_SRCS:.cpp=.o)
 
