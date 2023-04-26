@@ -72,7 +72,11 @@ int Rpn::isOperator(std::string value)
 float Rpn::operation(std::string token)
 {
     if (token[0] == '/')
+    {
+        if (operand2 == 0)
+            throw ZeroDivException();
         return (operand1 / operand2);
+    }
     if (token[0] == '*')
         return (operand1 * operand2);
     if (token[0] == '-')
@@ -109,4 +113,10 @@ int Rpn::execute(std::string input)
     }
     std::cout << GREEN << values.top() << END << std::endl;
     return (0);
+}
+
+/*#################### EXCEPTIONS ####################*/
+const char * Rpn::ZeroDivException::what() const throw()
+{
+	return ("EXCEPTION : incorrect division");
 }

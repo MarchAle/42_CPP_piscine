@@ -49,6 +49,12 @@ class Rpn
         float operation(std::string token);
         float calcul(float oper1);
         int execute(std::string input);
+
+        class ZeroDivException : public std::exception 
+		{
+			public:
+				virtual const char * what() const throw();
+		};
 };
 
 
