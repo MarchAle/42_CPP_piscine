@@ -32,7 +32,7 @@ INCS := $(addprefix $(DIR_INCS)/, $(LST_INCS))
 all : $(NAME)
 
 $(NAME) : $(OBJS) $(INCS) Makefile
-		$(CC) $(OBJS) -o $(NAME)
+		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(DIR_OBJS):
 		mkdir -p $(DIR_OBJS)

@@ -1,8 +1,8 @@
 #include "../incs/Rpn.hpp"
 
 /*#################### CANONICAL FORM ####################*/
-Rpn::Rpn(){}
-Rpn::Rpn(const Rpn &src){*this = src;}
+Rpn::Rpn() : number(0), oper(0) {}
+Rpn::Rpn(const Rpn &src) : number(0), oper(0) {*this = src;}
 Rpn &Rpn::operator=(const Rpn &src){return (*this); (void)src;}
 Rpn::~Rpn(){}
 
@@ -12,9 +12,11 @@ int Rpn::error(int code)
     if (code == VALID)
         return (code);
     if (code == ARGNB)
-        std::cerr << "Error: one argument expected" << std::endl;
+        std::cerr << RED << "Error: one argument expected" << END << std::endl;
     if (code == FORMAT)
-        std::cerr << "Error: invalid argument format" << std::endl;
+        std::cerr << RED << "Error: invalid argument format" << END << std::endl;
+    if (code == EXPR)
+        std::cerr << RED << "Error: invalid expression" << END << std::endl;
 
     return (INVALID);
 }
@@ -33,7 +35,7 @@ int Rpn::checkValue(std::string value)
     return (VALID);
 }
 
-int Rpn::splitAndStore(std::string input)
+int Rpn::checkExpres(std::string input)
 {
     std::string         tmp = input;
 	std::stringstream   ss(input);
@@ -42,9 +44,17 @@ int Rpn::splitAndStore(std::string input)
         if (checkValue(tmp) == INVALID)
             return (INVALID);
         if (tmp.size() > 0)
-            this->values.push(tmp);
+        {
+            if (!isOperator(tmp))
+                number++;
+            else
+                oper++;
+        }
     }
-    return (VALID);
+    if (number - oper != 1)
+        return (INVALID);
+    else
+        return (VALID);
 }
 
 int Rpn::isOperator(std::string value)
@@ -59,52 +69,44 @@ int Rpn::isOperator(std::string value)
     return (0);
 }
 
-float Rpn::operation(float oper1, float oper2, std::string token)
+float Rpn::operation(std::string token)
 {
     if (token[0] == '/')
-        return (oper1 / oper2);
+        return (operand1 / operand2);
     if (token[0] == '*')
-        return (oper1 * oper2);
+        return (operand1 * operand2);
     if (token[0] == '-')
-        return (oper1 - oper2);
+        return (operand1 - operand2);
     if (token[0] == '+')
-        return (oper1 + oper2);
+        return (operand1 + operand2);
     return(0);
-}
-
-float Rpn::calcul(float oper1)
-{
-    if (values.size() == 0 || isOperator(values.front()))
-        throw FormatException();
-    int oper2 = std::atoi(values.front().c_str());
-    values.pop();
-    if (!isOperator(values.front()))
-        oper2 = calcul(oper2);
-    float result = operation(oper1, oper2, values.front());
-    values.pop();
-    return(result);
 }
 
 int Rpn::execute(std::string input)
 {
-    if (splitAndStore(input) == INVALID)
-        return (error(FORMAT));
-    if (values.size() > 0 && !isOperator(values.front()))
-    {
-        int initValue = std::atoi(values.front().c_str());
-        values.pop();
-        float result = calcul(initValue);
-        while (values.size() > 0)
-            result = calcul(result);
-        std::cout << result << std::endl;
-    }
-    else
-        error(FORMAT);
-    return (0);
-}
+    if (checkExpres(input) == INVALID)
+        return (error(EXPR));
 
-/*#################### EXCEPTIONS ####################*/
-const char * Rpn::FormatException::what() const throw()
-{
-	return ("EXCEPTION : incorrect expression");
+    std::string         tmp = input;
+	std::stringstream   ss(input);
+	while (getline(ss, tmp, ' '))
+    {
+        if (tmp.size() > 0)
+        {
+            if (!isOperator(tmp))
+                values.push(std::atoi(tmp.c_str()));
+            else
+            {
+                if (values.size() < 2)
+                    return (error(EXPR));
+                operand2 = values.top();
+                values.pop();
+                operand1 = values.top();
+                values.pop();
+                values.push(operation(tmp));
+            }
+        }
+    }
+    std::cout << GREEN << values.top() << END << std::endl;
+    return (0);
 }

@@ -17,26 +17,28 @@ int PmergeMe::checkValue(std::string value)
     {
         if (!std::isdigit(value[i]))
         {
-            std::cerr << "Error: " << value << " is not a positive integer" << std::endl;
+            std::cerr << RED << "Error: " << value << " is not a positive integer" << END << std::endl;
             return (INVALID);
         }
     }
     return (VALID);
 }
 
-int PmergeMe::splitAndStore(std::string input)
+int PmergeMe::splitAndStore(char ** input)
 {
-    std::string tmp = input;
-    std::stringstream ss(input);
-    while (getline(ss, tmp, ' '))
+    int i = 0;
+
+    while (input[i])
     {
-        if (checkValue(tmp) == INVALID)
+        std::string tmp = input[i];
+        if (checkValue(input[i]) == INVALID)
             return (INVALID);
         if (tmp.size() > 0)
         {
             this->list.push_back(std::atoi(tmp.c_str()));
             this->deque.push_back(std::atoi(tmp.c_str()));
         }
+        i++;
     }
     return (VALID);
 }
@@ -96,41 +98,41 @@ std::deque<int> PmergeMe::sortDeque(std::deque<int> deque)
     return (insertSort(deque));
 }
 
-int PmergeMe::sort(std::string input)
+int PmergeMe::sort(char ** input)
 {
     if (splitAndStore(input) == INVALID)
         return (INVALID);
 
     {
         struct timeval start, end;
-        std::cout << "std::list before\t";
+        std::cout << YELLOW << "std::list before\t";
         printArray(list);
         gettimeofday(&start, NULL);
         this->list = sortList(this->list);
         gettimeofday(&end, NULL);
-        std::cout << "std::list after\t\t";
+        std::cout << GREEN << "std::list after\t\t";
         printArray(list);
 
         long seconds = end.tv_sec - start.tv_sec;
         long microseconds = end.tv_usec - start.tv_usec;
         long duration = seconds * 1000000 + microseconds;
-        std::cout << "Time to process " << list.size() << " elements with std::list : " << duration << " us" << std::endl;
+        std::cout << BLUE << "Time to process " << list.size() << " elements with std::list : " << duration << " us" << END << std::endl;
     }
 
     {
         struct timeval start, end;
-        std::cout << "std::deque before\t";
+        std::cout << YELLOW << "std::deque before\t";
         printArray(deque);
         gettimeofday(&start, NULL);
         this->deque = sortDeque(this->deque);
         gettimeofday(&end, NULL);
-        std::cout << "std::deque after\t";
+        std::cout << GREEN << "std::deque after\t";
         printArray(deque);
 
         long seconds = end.tv_sec - start.tv_sec;
         long microseconds = end.tv_usec - start.tv_usec;
         long duration = seconds * 1000000 + microseconds;
-        std::cout << "Time to process " << deque.size() << " elements with std::deque : " << duration << " us" << std::endl;
+        std::cout << BLUE << "Time to process " << deque.size() << " elements with std::deque : " << duration << " us" << END << std::endl;
     }
 
     return (0);

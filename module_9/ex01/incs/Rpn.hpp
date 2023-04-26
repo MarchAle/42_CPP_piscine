@@ -3,19 +3,38 @@
 
 # include <iostream>
 # include <sstream>
-# include <queue>
+# include <stack>
 # include <cstdlib>
 
+# define RED "\x1B[31m"
+# define GREEN "\x1B[32m"
+# define YELLOW "\x1B[33m"
+# define BLUE "\x1B[34m"
+# define MAGENTA "\x1B[35m"
+# define CYAN "\x1B[36m"
+# define BRED "\x1B[91m"
+# define BGREEN "\x1B[92m"
+# define BYELLOW "\x1B[93m"
+# define BBLUE "\x1B[94m"
+# define BMAGENTA "\x1B[95m"
+# define BCYAN "\x1B[96m"
+# define WHITE "\x1B[97m"
+# define END "\033[0m"
 
 # define INVALID 0
 # define VALID 1
 # define ARGNB 2
 # define FORMAT 3
+# define EXPR 4
 
 class Rpn
 {
     private:
-        std::queue<std::string> values;
+        int number;
+        int oper;
+        float operand1;
+        float operand2;
+        std::stack<float> values;
 
     public:
         Rpn();
@@ -25,17 +44,11 @@ class Rpn
 
         int error(int code);
         int checkValue(std::string value);
-        int splitAndStore(std::string input);
+        int checkExpres(std::string input);
         int isOperator(std::string value);
-        float operation(float oper1, float oper2, std::string token);
+        float operation(std::string token);
         float calcul(float oper1);
         int execute(std::string input);
-
-        class FormatException : public std::exception 
-		{
-			public:
-				virtual const char * what() const throw();
-		};
 };
 
 

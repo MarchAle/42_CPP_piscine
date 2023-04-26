@@ -3,10 +3,26 @@
 
 #include <iostream>
 #include <sstream>
+#include <string>
 #include <deque>
 #include <list>
 #include <cstdlib>
 #include <sys/time.h>
+
+# define RED "\x1B[31m"
+# define GREEN "\x1B[32m"
+# define YELLOW "\x1B[33m"
+# define BLUE "\x1B[34m"
+# define MAGENTA "\x1B[35m"
+# define CYAN "\x1B[36m"
+# define BRED "\x1B[91m"
+# define BGREEN "\x1B[92m"
+# define BYELLOW "\x1B[93m"
+# define BBLUE "\x1B[94m"
+# define BMAGENTA "\x1B[95m"
+# define BCYAN "\x1B[96m"
+# define WHITE "\x1B[97m"
+# define END "\033[0m"
 
 #define INVALID 0
 #define VALID 1
@@ -24,10 +40,10 @@ public:
     ~PmergeMe();
 
     int checkValue(std::string value);
-    int splitAndStore(std::string input);
+    int splitAndStore(char ** input);
     std::list<int> sortList(std::list<int> list);
     std::deque<int> sortDeque(std::deque<int> deque);
-    int sort(std::string input);
+    int sort(char ** input);
 
     template <typename Container>
     void printArray(Container array)
@@ -66,25 +82,6 @@ public:
         }
         return (array);
     }
-
-    // template <typename Container>
-    // Container sortData(Container array)
-    // {
-    //     int arraySize = array.size();
-    //     if (arraySize > 6)
-    //     {
-    //         typename Container::iterator half = array.begin();
-    //         for (int i = 0; i < arraySize / 2; i++)
-    //             half++;
-    //         Container left(array.begin(), half);
-    //         Container right(++half, array.end());
-    //         left = sortData(left);
-    //         right = sortData(right);
-    //         left.merge(right);
-    //         return (left);
-    //     }
-    //     return (insertSort(array));
-    // }
 };
 
 #endif

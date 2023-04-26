@@ -29,15 +29,15 @@ int BitcoinExchange::error(int code, std::string &line)
     if (code == VALID)
         return (code);
     if (code == FORMAT)
-        std::cerr << "Error: bad input => " << line << "  [\"YYYY-MM-DD | value\" format required]" << std::endl;
+        std::cerr << RED << "Error: bad input => " << line << "  [\"YYYY-MM-DD | value\" format required]" << END << std::endl;
     if (code == BBTC)
-        std::cerr << "Error: date before btc creation => " << split(line, '|')[0] << "[2009-01-02 btc is born]" << std::endl;
+        std::cerr << RED << "Error: date before btc creation => " << split(line, '|')[0] << "[2009-01-02 btc is born]" << END << std::endl;
     if (code == NEGATIVE_VALUE)
-        std::cerr << "Error: value is negative =>" << split(line, '|')[1] << " [min value: 0]" << std::endl;
+        std::cerr << RED << "Error: value is negative =>" << split(line, '|')[1] << " [min value: 0]" << END << std::endl;
     if (code == TOO_LARGE_VALUE)
-        std::cerr << "Error: too large value =>" << split(line, '|')[1] << " [max value: 1000]" << std::endl;
+        std::cerr << RED << "Error: too large value =>" << split(line, '|')[1] << " [max value: 1000]" << END << std::endl;
     if (code == VALUE_ERR)
-        std::cerr << "Error: incorrect value =>" << split(line, '|')[1] << std::endl;
+        std::cerr << RED << "Error: incorrect value =>" << split(line, '|')[1] << END << std::endl;
 
     return (INVALID);
 }
@@ -81,7 +81,7 @@ int BitcoinExchange::checkExistingDate(int year, int month, int day)
     if (month > 12 
         || (((month % 2 != 0 && month <= 7) || (month % 2 == 0 && month > 7)) && day > 31) 
         || (((month % 2 == 0 && month <= 7) || (month % 2 != 0 && month > 7)) && day > 30) 
-        || (year % 4 != 0 && month == 02 && day > 28) 
+        || ((year % 4 != 0 || (year % 100 == 0 && year % 400 != 0)) && month == 02 && day > 28) 
         || (year % 4 == 0 && month == 02 && day > 29))
         return (INVALID);
     return (VALID);
@@ -113,7 +113,7 @@ int BitcoinExchange::checkValue(std::string &value)
         return (NEGATIVE_VALUE);
     if (isFloat(value.c_str() + 1) == VALUE_ERR)
         return (VALUE_ERR);
-    if (std::atol(value.c_str()) > 1000)
+    if (std::atol(value.c_str()) > 1000 || value.length() > 10)
         return (TOO_LARGE_VALUE);
     return (VALID);
 }
@@ -147,7 +147,7 @@ void    BitcoinExchange::calculBalance(std::string &line, std::vector<std::pair<
     while (dateTimestamp > (*it).first && it != end)
         it++;
 
-    std::cout << splitedLine[0] << " =>" << splitedLine[1] << " = " << value * (*it).second << std::endl;
+    std::cout << GREEN << splitedLine[0] << " =>" << splitedLine[1] << " = " << value * (*it).second << END << std::endl;
 }
 
 

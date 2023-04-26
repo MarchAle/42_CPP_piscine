@@ -12,7 +12,7 @@
 
 NAME 		:= btc
 CC 			:= c++
-CFLAGS	 	:=  -std=c++98 -Wall -Wextra -Werror
+CFLAGS	 	:= -std=c++98 -Wall -Wextra -Werror
 
 DIR_SRCS	:= ./srcs
 DIR_OBJS	:= ./objs
@@ -32,7 +32,7 @@ INCS := $(addprefix $(DIR_INCS)/, $(LST_INCS))
 all : $(NAME)
 
 $(NAME) : $(OBJS) $(INCS) Makefile
-		$(CC) $(OBJS) -o $(NAME)
+		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(DIR_OBJS):
 		mkdir -p $(DIR_OBJS)
