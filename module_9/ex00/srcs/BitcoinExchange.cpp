@@ -145,7 +145,11 @@ void    BitcoinExchange::calculBalance(std::string &line, std::vector<std::pair<
 
     
     while (dateTimestamp > (*it).first && it != end)
+    {
+        if (dateTimestamp > (*it).first && dateTimestamp < (*(it + 1)).first)
+            break;
         it++;
+    }
 
     std::cout << GREEN << splitedLine[0] << " =>" << splitedLine[1] << " = " << value * (*it).second << END << std::endl;
 }
