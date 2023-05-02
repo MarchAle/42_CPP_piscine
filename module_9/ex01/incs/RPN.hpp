@@ -26,8 +26,10 @@
 # define ARGNB 2
 # define FORMAT 3
 # define EXPR 4
+# define TOOMUCHOPER 5
+# define TOOFEWOPER 6
 
-class Rpn
+class RPN
 {
     private:
         int number;
@@ -37,16 +39,15 @@ class Rpn
         std::stack<float> values;
 
     public:
-        Rpn();
-        Rpn(const Rpn &src);
-        Rpn &operator=(const Rpn &src);
-        ~Rpn();
+        RPN();
+        RPN(const RPN &src);
+        RPN &operator=(const RPN &src);
+        ~RPN();
 
         int error(int code);
-        int checkValue(std::string value);
         int checkExpres(std::string input);
-        int isOperator(std::string value);
-        float operation(std::string token);
+        int isOperator(char c);
+        float operation(char token);
         float calcul(float oper1);
         int execute(std::string input);
 

@@ -109,11 +109,9 @@ int BitcoinExchange::checkValue(std::string &value)
 {
     if (value[0] != ' ')
         return (FORMAT);
-    if (value[1] == '-')
-        return (NEGATIVE_VALUE);
     if (isFloat(value.c_str() + 1) == VALUE_ERR)
         return (VALUE_ERR);
-    if (std::atol(value.c_str()) > 1000 || value.length() > 10)
+    if (std::atof(value.c_str()) > 1000 || std::atof(value.c_str()) < 0)
         return (TOO_LARGE_VALUE);
     return (VALID);
 }
@@ -143,7 +141,6 @@ void    BitcoinExchange::calculBalance(std::string &line, std::vector<std::pair<
     std::vector<std::pair<int, float> >::iterator it = historic.begin();
     std::vector<std::pair<int, float> >::iterator end = historic.end() - 1;
 
-    
     while (dateTimestamp > (*it).first && it != end)
     {
         if (dateTimestamp > (*it).first && dateTimestamp < (*(it + 1)).first)
@@ -159,12 +156,14 @@ void    BitcoinExchange::processInput(std::vector<std::pair<int, float> > &histo
 {
     std::string line;
     std::getline(input, line);
+    if (line.compare("date | value"))
+    {
+        if (this->inputLineFormat(line) == VALID)
+            calculBalance(line, historic);
+    }
     while ( std::getline(input, line))
     {
         if (this->inputLineFormat(line) == VALID)
-        {
             calculBalance(line, historic);
-        }
     }
-
 }

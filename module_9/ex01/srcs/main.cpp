@@ -1,4 +1,4 @@
-#include "../incs/Rpn.hpp"
+#include "../incs/RPN.hpp"
 
 int inputParser(std::string input)
 {
@@ -17,7 +17,7 @@ int inputParser(std::string input)
  
 int main(int ac, char** av) 
 {
-    Rpn calculator;
+    RPN calculator;
 
     if (ac != 2)
         return (calculator.error(ARGNB));

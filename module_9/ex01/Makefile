@@ -19,9 +19,9 @@ DIR_OBJS	:= ./objs
 DIR_INCS	:= ./incs
 
 LST_SRCS	:=	main.cpp		\
-				Rpn.cpp
+				RPN.cpp
 		
-LST_INCS	:=	Rpn.hpp	\
+LST_INCS	:=	RPN.hpp	\
 			
 LST_OBJS := $(LST_SRCS:.cpp=.o)
 
